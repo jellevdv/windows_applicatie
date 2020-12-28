@@ -8,7 +8,27 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <SplitView DisplayMode="Inline" IsPaneOpen="True">
+        <SplitView.Pane>
+            <ListView x:Name="list"  HorizontalAlignment="Center" Width="319" SelectionChanged="List_SelectionChanged">
 
-    </Grid>
+                <ListViewItem Background="#FF206EF7" Height="136" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal" >
+                        <AppBarButton Icon="Calendar" />
+                        <TextBlock Text="Holidays" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="36" FontWeight="Normal" FontFamily="Candara Light" />
+                    </StackPanel>
+                </ListViewItem>
+
+                <ListViewItem Height="145" Background="#FF206EF7">
+                    <StackPanel Orientation="Horizontal">
+                        <AppBarButton Icon="Library" />
+                        <TextBlock Text="Items" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="36"/>
+                    </StackPanel>
+                </ListViewItem>
+
+
+            </ListView>
+        </SplitView.Pane>
+        <Frame x:Name="mainFrame"/>
+    </SplitView>
 </Page>

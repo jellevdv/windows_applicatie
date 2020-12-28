@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,5 +27,14 @@ namespace WindowsApplicatie
         {
             this.InitializeComponent();
         }
+
+        private void List_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
+            messageBoxCS.AppendFormat("{0} = {1}", "IsSelected", e.OriginalSource);
+            messageBoxCS.AppendLine();
+        }
+
+
     }
 }
