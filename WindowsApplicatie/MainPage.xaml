@@ -10,21 +10,24 @@
 
     <SplitView DisplayMode="Inline" IsPaneOpen="True">
         <SplitView.Pane>
-            <ListView x:Name="list"  HorizontalAlignment="Center" Width="319" SelectionChanged="List_SelectionChanged">
+            <ListView x:Name="list"  HorizontalAlignment="Center" Width="319" SelectionChanged="List_SelectionChanged" Background="#FF43A0FD">
 
                 <ListViewItem Background="#FF206EF7" Height="136" Margin="0,0,0,5">
                     <StackPanel Orientation="Horizontal" >
-                        <AppBarButton Icon="Calendar" />
-                        <TextBlock Text="Holidays" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="36" FontWeight="Normal" FontFamily="Candara Light" />
+                        <AppBarButton Icon="Calendar" Height="80" />
+                        <Button Content="Holidays" VerticalAlignment="Top" Click="Holidays_clicked" Height="79" Width="193" Background="#33000000" FontSize="22"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="145" Background="#FF206EF7">
                     <StackPanel Orientation="Horizontal">
-                        <AppBarButton Icon="Library" />
-                        <TextBlock Text="Items" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="36"/>
+                        <AppBarButton Icon="Library" Height="85" />
+                        <Button Content="Categories" VerticalAlignment="Top" Click="Categories_clicked" Height="83" Width="187" FontSize="22"/>
                     </StackPanel>
                 </ListViewItem>
+
+
+
 
 
             </ListView>

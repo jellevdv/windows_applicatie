@@ -30,9 +30,18 @@ namespace WindowsApplicatie
 
         private void List_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
-            messageBoxCS.AppendFormat("{0} = {1}", "IsSelected", e.OriginalSource);
-            messageBoxCS.AppendLine();
+            //  mainFrame.Navigate(typeof(Views.HomePage));
+            Console.WriteLine(sender.ToString());
+        }
+
+        private void Holidays_clicked(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Views.HolidayPage));
+        }
+
+        private void Categories_clicked(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Views.CategoryPage));
         }
 
 
