@@ -9,8 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
-        <StackPanel>
-            <TextBlock>Categories komen hier</TextBlock>
-        </StackPanel>
+        <ListBox x:Name="CategoryList" Margin="5" Width="1502" Height="994" HorizontalAlignment="Left" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="{Binding Name}" Margin="2"/>
+                        <TextBlock Text="(" Margin="10,2,0,2"/>
+                        <TextBlock Text="{Binding Description}" Margin="2"/>
+                        <TextBlock Text=")" Margin="10,2,0,2"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            </ListBox>
+
     </ScrollViewer>
 </Page>

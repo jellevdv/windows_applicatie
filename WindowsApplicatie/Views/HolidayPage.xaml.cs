@@ -24,12 +24,17 @@ namespace WindowsApplicatie.Views
     /// </summary>
     public sealed partial class HolidayPage : Page
     {
+
+        public ObservableCollection<Holiday> Holidays = new ObservableCollection<Holiday>();
+
         public HolidayPage()
         {
             InitializeComponent();
 
 
-            listViewHolidays.DataContext = new Holiday("Honeymoon", "Hawaii", "Honeymoon for two weeks", DateTime.Now);
+            Holidays.Add(new Holiday("Honeymoon", "Hawaii", "Honeymoon for two weeks", DateTime.Now));
+            Holidays.Add(new Holiday("Hiking trip", "Scotland", "Hikingtrip with friends", DateTime.Now));
+            listViewHolidays.DataContext = Holidays;
         }
 
         private void ListView_SelectionChanged(object sender, RoutedEventArgs e)
