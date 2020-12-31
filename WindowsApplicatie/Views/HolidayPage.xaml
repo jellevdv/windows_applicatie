@@ -32,7 +32,7 @@
             </ListBox>
 
         </ScrollViewer>
-        <Button Content="Add Holiday" Margin="930,-33,0,830" VerticalAlignment="Stretch" Width="486" Grid.ColumnSpan="4" FontSize="24"/>
+        <Button Content="Add Holiday" Command="{Binding AddHolidayCommand}" CommandParameter="AddHoliday" Margin="930,-33,0,830" VerticalAlignment="Stretch" Width="486" Grid.ColumnSpan="4" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,-42,0,0" Text="Holidays" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="226" FontSize="48"/>
     </Grid>
 </Page>

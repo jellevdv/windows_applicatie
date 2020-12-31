@@ -44,8 +44,7 @@ namespace WindowsApplicatie.ViewModels
 
         private void AddHoliday(object p)
         {
-            Holidays.Add(new Holiday("Honeymoon", "Hawaii", "Honeymoon for two weeks", DateTime.Now));
-            Holidays.Add(new Holiday("Hiking trip", "Scotland", "Hikingtrip with friends", DateTime.Now));
+            Holidays.Add(new Holiday() {Name=p.ToString(), Description="Test button nieuwe reis", Destination="Test", DepartureDate=DateTime.Now } );
         }
     }
 }
