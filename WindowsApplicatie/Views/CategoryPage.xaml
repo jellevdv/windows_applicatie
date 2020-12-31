@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
-        <ListBox x:Name="CategoryList" Margin="5" Width="1502" Height="994" HorizontalAlignment="Left" ItemsSource="{Binding}">
+        <ListBox x:Name="CategoryList" Margin="5" Width="1502" Height="994" HorizontalAlignment="Left" ItemsSource="{Binding Categories}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">

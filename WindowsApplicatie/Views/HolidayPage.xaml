@@ -10,7 +10,7 @@
 
     <ScrollViewer>
         <ScrollViewer>
-            <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="994" ItemsSource="{Binding}">
+            <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="994" ItemsSource="{Binding Holidays}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">

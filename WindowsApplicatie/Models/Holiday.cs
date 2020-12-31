@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WindowsApplicatie.Models
 {
-    public class Holiday
+    public class Holiday : INotifyPropertyChanged
     {
         #region fields
         public string _name;
         public string _description;
         public string _destination;
         public DateTime _departuredate;
+
         #endregion
 
         #region Properties
@@ -104,6 +107,12 @@ namespace WindowsApplicatie.Models
                 throw new ArgumentException("Category is already added.");
             }
             Users.Add(user);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
