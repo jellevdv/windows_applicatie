@@ -46,5 +46,7 @@ namespace WindowsApplicatie.ViewModels
         {
             Holidays.Add(new Holiday() {Name=p.ToString(), Description="Test button nieuwe reis", Destination="Test", DepartureDate=DateTime.Now } );
         }
+
+        
     }
 }

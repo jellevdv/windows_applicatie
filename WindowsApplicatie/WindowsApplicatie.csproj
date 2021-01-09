@@ -145,6 +145,9 @@
     <Compile Include="Views\HolidayPage.xaml.cs">
       <DependentUpon>HolidayPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PopupDesignPage.xaml.cs">
+      <DependentUpon>PopupDesignPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HolidayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopupDesignPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

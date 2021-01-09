@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="WindowsApplicatie.Views.PopupDesignPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsApplicatie.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid Margin="193,162,194,162">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Margin="-192,-159,-183,-162">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <TextBlock Text="Naam van de reis:" FontSize="24.667" Margin="0,0,1,0"/>
+                        <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" Text="bv. Trektocht" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Bestemming: " FontSize="24.667" HorizontalAlignment="Left" Width="944"/>
+                        <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" Text="bv. Schotland" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Vertrekdatum: " FontSize="24.667" HorizontalAlignment="Center" Width="953"/>
+                        <CalendarDatePicker Margin="477,8,0,0" VerticalAlignment="Top" Height="39" Width="223"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="579*"/>
+                            <ColumnDefinition Width="374*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Omschrijving: " FontSize="24.667" HorizontalAlignment="Left" Width="946" Grid.ColumnSpan="2"/>
+                        <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" Height="82" Grid.ColumnSpan="2"/>
+                    </Grid>
+                    <Grid Height="33" Width="200">
+                        <Button Content="Close" HorizontalAlignment="Left"/>
+                        <Button Content="Enter" HorizontalAlignment="Center" Width="62"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
