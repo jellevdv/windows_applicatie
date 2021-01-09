@@ -20,10 +20,10 @@ namespace WindowsApplicatie.Views
             InitializeComponent();
             this.DataContext = new HolidayPageViewModel();
         }
-
+        //TODO moet nog in viewmodel ipv view zelf
         public void ClosePopupClicked(object sender, RoutedEventArgs e)
         {
-            // if the Popup is open, then close it 
+            // if the Popup is open, then close it
             if (StandardPopup.IsOpen) { StandardPopup.IsOpen = false; }
         }
 

@@ -43,11 +43,11 @@
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Grid>
                             <TextBlock Text="Naam van de reis:" FontSize="24.667" Margin="0,0,1,0"/>
-                            <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" Text="bv. Trektocht" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                            <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Trektocht" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
                         </Grid>
                         <Grid>
                             <TextBlock Text="Bestemming: " FontSize="24.667" HorizontalAlignment="Left" Width="944"/>
-                            <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" Text="bv. Schotland" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                            <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Schotland" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
                         </Grid>
                         <Grid>
                             <TextBlock Text="Vertrekdatum: " FontSize="24.667" HorizontalAlignment="Center" Width="953"/>

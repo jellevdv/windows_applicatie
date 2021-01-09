@@ -9,18 +9,45 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
-        <ListBox x:Name="CategoryList" Margin="5" Width="1502" Height="994" HorizontalAlignment="Left" ItemsSource="{Binding Categories}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{Binding Name}" Margin="2"/>
-                        <TextBlock Text="(" Margin="10,2,0,2"/>
-                        <TextBlock Text="{Binding Description}" Margin="2"/>
-                        <TextBlock Text=")" Margin="10,2,0,2"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+        <Grid>
+            <ListBox x:Name="CategoryList" Margin="-2,312,0,10" ItemsSource="{Binding Categories}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Name}" Margin="2"/>
+                            <TextBlock Text="(" Margin="10,2,0,2"/>
+                            <TextBlock Text="{Binding Description}" Margin="2"/>
+                            <TextBlock Text=")" Margin="10,2,0,2"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
+            <Button Content="Add Category&#xD;&#xA;" Click="ShowPopupOffsetClicked" Margin="1163,108,0,0" VerticalAlignment="Top" Height="80" Width="268" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="246,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="197" FontSize="36" RenderTransformOrigin="-0.215,0.909"><Run Text="Categories"/><LineBreak/><Run/></TextBlock>
+
+            <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
+                <Grid Margin="193,162,194,162">
+                    <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid>
+                                <TextBlock Text="Naam van categorie:" FontSize="24.667" Margin="0,0,1,0"/>
+                                <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Elektronica" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                            </Grid>
+                            <Grid Height="33" Width="200">
+                                <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>
+                                <Button Content="Enter" HorizontalAlignment="Center" Width="62"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Popup>
+
+
+        </Grid>
+        
+        
 
     </ScrollViewer>
 </Page>
