@@ -33,11 +33,11 @@
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Grid>
                                 <TextBlock Text="Naam van categorie:" FontSize="24.667" Margin="0,0,1,0"/>
-                                <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Elektronica" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                                <TextBox x:Name="NewCategoryName" HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Elektronica" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" />
                             </Grid>
                             <Grid Height="33" Width="200">
                                 <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>
-                                <Button Content="Enter" HorizontalAlignment="Center" Width="62"/>
+                                <Button Content="Enter"  Command="{Binding AddCategoryCommand}" CommandParameter="NewCategoryName.Text" HorizontalAlignment="Center" Width="62"/>
                             </Grid>
                         </StackPanel>
                     </Border>

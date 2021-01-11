@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WindowsApplicatie.Models;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,6 +36,11 @@ namespace WindowsApplicatie.Views
         {
             // open the Popup if it isn't open already 
             if (!StandardPopup.IsOpen) { StandardPopup.IsOpen = true; }
+        }
+
+        public void EnterClicked(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine(NewCategoryName.Text);
         }
     }
 }
