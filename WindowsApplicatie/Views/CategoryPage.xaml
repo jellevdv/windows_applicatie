@@ -37,7 +37,7 @@
                             </Grid>
                             <Grid Height="33" Width="200">
                                 <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>
-                                <Button Content="Enter"  Command="{Binding AddCategoryCommand}" CommandParameter="NewCategoryName.Text" HorizontalAlignment="Center" Width="62"/>
+                                <Button Content="Enter"  Command="{Binding AddCategoryCommand}" CommandParameter="{Binding Text, ElementName=NewCategoryName}" HorizontalAlignment="Center" Width="62"/>
                             </Grid>
                         </StackPanel>
                     </Border>

@@ -47,7 +47,7 @@ namespace WindowsApplicatie.ViewModels
 
         private void AddCategory(object p)
         {
-            Categories.Add(new Category("Electronics", "All electronic devices"));
+            Categories.Add(new Category(p.ToString(), "All electronic devices"));
         }
 
     }
