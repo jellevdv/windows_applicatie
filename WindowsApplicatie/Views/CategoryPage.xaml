@@ -30,10 +30,10 @@
                     <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                 BorderThickness="2">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
                             <Grid>
                                 <TextBlock Text="Naam van categorie:" FontSize="24.667" Margin="0,0,1,0"/>
-                                <TextBox x:Name="NewCategoryName" HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Elektronica" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" />
+                                <TextBox x:Name="NewCategoryName" Text="{Binding Name}" HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Elektronica" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" />
                             </Grid>
                             <Grid Height="33" Width="200">
                                 <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>

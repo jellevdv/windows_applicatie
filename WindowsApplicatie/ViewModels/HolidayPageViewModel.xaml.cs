@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Net.Http;
 using Windows.UI.Xaml.Controls;
 using WindowsApplicatie.Models;
@@ -11,10 +12,13 @@ using WindowsApplicatie.Models;
 namespace WindowsApplicatie.ViewModels
 {
 
-    public sealed partial class HolidayPageViewModel : Page
+    public sealed partial class HolidayPageViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Holiday> Holidays { get; set; } //data
         public RelayCommand AddHolidayCommand { get; set; } //command
+        public event PropertyChangedEventHandler PropertyChanged; //voor als we op een bepaalde holiday klikken
+        Holiday selectedHoliday;
+   
 
         public HolidayPageViewModel()
         {
@@ -28,6 +32,20 @@ namespace WindowsApplicatie.ViewModels
 
             //HaalDataOp();
         }
+
+        public Holiday SelectedHoliday
+        {
+            get => selectedHoliday;
+            set
+            {
+                selectedHoliday = value;
+                var args = new PropertyChangedEventArgs(nameof(SelectedHoliday));
+
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+
+   
 
         private async void HaalDataOp()
         {
