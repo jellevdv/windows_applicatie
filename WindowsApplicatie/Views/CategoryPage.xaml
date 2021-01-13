@@ -35,6 +35,10 @@
                                 <TextBlock Text="Naam van categorie:" FontSize="24.667" Margin="0,0,1,0"/>
                                 <TextBox x:Name="NewCategoryName" Text="{Binding Name}" HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Elektronica" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" />
                             </Grid>
+                            <Grid>
+                                <TextBlock Text="Korte beschrijving:" FontSize="24.667" Margin="0,0,1,0"/>
+                                <TextBox x:Name="NewCategoryDescription" Text="{Binding Description}" HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. All our eletronic devices" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" />
+                            </Grid>
                             <Grid Height="33" Width="200">
                                 <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>
                                 <Button Content="Enter"  Command="{Binding AddCategoryCommand}" CommandParameter="{Binding Text, ElementName=NewCategoryName}" HorizontalAlignment="Center" Width="62"/>
