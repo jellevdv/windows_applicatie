@@ -2,7 +2,6 @@
     x:Class="WindowsApplicatie.Views.HolidayPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:WindowsApplicatie.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -34,6 +33,7 @@
         </ScrollViewer>
         <Button Content="Add Holiday" Command="{Binding AddHolidayCommand}" CommandParameter="AddHoliday"  Click="ShowPopupOffsetClicked" Margin="930,-33,0,830" VerticalAlignment="Stretch" Width="486" Grid.ColumnSpan="4" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,-42,0,0" Text="Holidays" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="226" FontSize="48"/>
+        <Button Content="Test New Page" Command="{Binding GoToSpecificHolidayCommand}" CommandParameter="Hawaii"  Margin="930,27,0,779" VerticalAlignment="Stretch" Width="486" Grid.ColumnSpan="4" FontSize="24"/>
 
         <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
             <Grid Margin="193,162,194,162">

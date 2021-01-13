@@ -34,5 +34,7 @@ namespace WindowsApplicatie.Views
             if (!StandardPopup.IsOpen) { StandardPopup.IsOpen = true; }
         }
 
+        
+
     }
 }

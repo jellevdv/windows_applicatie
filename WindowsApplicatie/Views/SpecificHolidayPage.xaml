@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="WindowsApplicatie.Views.SpecificHolidayPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsApplicatie.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <SplitView DisplayMode="Inline" IsPaneOpen="True">
+        <SplitView.Pane>
+            <ListView x:Name="lijst2"  HorizontalAlignment="Center" Width="319"  Background="#FF43A0FD">
+
+                <ListViewItem Background="#FF206EF7" Height="136" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal" >
+                        <AppBarButton Icon="Calendar" Height="80" />
+                        <Button Content="SpecificHoliday" VerticalAlignment="Top" Height="79" Width="193" Background="#33000000" FontSize="22"/>
+                    </StackPanel>
+                </ListViewItem>
+
+                <ListViewItem Height="145" Background="#FF206EF7">
+                    <StackPanel Orientation="Horizontal">
+                        <AppBarButton Icon="Library" Height="85" />
+                        <Button Content="Other Holidays" VerticalAlignment="Top"  Height="83" Width="187" FontSize="22"/>
+                    </StackPanel>
+                </ListViewItem>
+
+
+            </ListView>
+        </SplitView.Pane>
+        <Frame x:Name="holidays"/>
+    </SplitView>
+</Page>

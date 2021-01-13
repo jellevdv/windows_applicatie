@@ -1,4 +1,6 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using DocumentFormat.OpenXml.ExtendedProperties;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
@@ -6,16 +8,18 @@ using System.ComponentModel;
 using System.Net.Http;
 using Windows.UI.Xaml.Controls;
 using WindowsApplicatie.Models;
+using WindowsApplicatie.Views;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace WindowsApplicatie.ViewModels
 {
 
-    public sealed partial class HolidayPageViewModel : INotifyPropertyChanged
+    public sealed partial class HolidayPageViewModel : Page, INotifyPropertyChanged
     {
         public ObservableCollection<Holiday> Holidays { get; set; } //data
-        public RelayCommand AddHolidayCommand { get; set; } //command
+        public RelayCommand AddHolidayCommand { get; set; } //command om holiday toe te voegen
+        public RelayCommand GoToSpecificHolidayCommand { get; set; } //command om naar specifieke holiday te gaan
         public event PropertyChangedEventHandler PropertyChanged; //voor als we op een bepaalde holiday klikken
         Holiday selectedHoliday;
    
@@ -23,6 +27,7 @@ namespace WindowsApplicatie.ViewModels
         public HolidayPageViewModel()
         {
             AddHolidayCommand = new RelayCommand((param) => AddHoliday(param));
+            GoToSpecificHolidayCommand = new RelayCommand((param) => GoToSpecificHoliday(param));
 
             Holidays = new ObservableCollection<Holiday>();
             Holidays.Add(new Holiday("Honeymoon", "Hawaii", "Honeymoon for two weeks", DateTime.Now));
@@ -65,6 +70,15 @@ namespace WindowsApplicatie.ViewModels
             Holidays.Add(new Holiday() {Name=p.ToString(), Description="Test button nieuwe reis", Destination="Test", DepartureDate=DateTime.Now } );
         }
 
-        
+        private void GoToSpecificHoliday(object p)
+        {
+            //Frame.Navigate(typeof(SpecificHolidayPage));
+       //     this.Content = new SpecificHolidayPage();
+        }
+
+
+
+
+
     }
 }
