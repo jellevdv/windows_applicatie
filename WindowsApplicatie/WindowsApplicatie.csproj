@@ -136,6 +136,9 @@
     <Compile Include="ViewModels\HolidayPageViewModel.xaml.cs">
       <DependentUpon>HolidayPageViewModel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ItemPageViewModel.xaml.cs">
+      <DependentUpon>ItemPageViewModel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MainPageViewModel.xaml.cs">
       <DependentUpon>MainPageViewModel.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,9 @@
     </Compile>
     <Compile Include="Views\HolidayPage.xaml.cs">
       <DependentUpon>HolidayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemPage.xaml.cs">
+      <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PopupDesignPage.xaml.cs">
       <DependentUpon>PopupDesignPage.xaml</DependentUpon>
@@ -181,6 +187,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewModels\ItemPageViewModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewModels\MainPageViewModel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HolidayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

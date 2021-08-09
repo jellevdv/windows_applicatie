@@ -46,6 +46,11 @@ namespace WindowsApplicatie
             mainFrame.Navigate(typeof(Views.CategoryPage));
         }
 
+        private void Items_clicked(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Views.ItemPage));
+        }
+
 
     }
 }

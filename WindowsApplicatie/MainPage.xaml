@@ -14,15 +14,21 @@
 
                 <ListViewItem Background="#FF206EF7" Height="136" Margin="0,0,0,5">
                     <StackPanel Orientation="Horizontal" >
-                        <AppBarButton Icon="Calendar" Height="80" />
+                        <AppBarButton Icon="Calendar" Height="55" Margin="0,20,0,0" />
                         <Button Content="Holidays" VerticalAlignment="Top" Click="Holidays_clicked" Height="79" Width="193" Background="#33000000" FontSize="22"/>
                     </StackPanel>
                 </ListViewItem>
 
-                <ListViewItem Height="145" Background="#FF206EF7">
+                <ListViewItem Height="145" Background="#FF206EF7" Margin="0,0,0,0">
                     <StackPanel Orientation="Horizontal">
-                        <AppBarButton Icon="Library" Height="85" />
+                        <AppBarButton Icon="Library" Height="55" Margin="0,20,0,0" />
                         <Button Content="Categories" VerticalAlignment="Top" Click="Categories_clicked" Height="83" Width="187" FontSize="22"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="145" Background="#FF206EF7" Margin="0,5,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <AppBarButton Icon="Favorite" Height="55" Margin="0,22,0,0" />
+                        <Button Content="Items" VerticalAlignment="Top" Click="Items_clicked" Height="83" Width="187" FontSize="22"/>
                     </StackPanel>
                 </ListViewItem>
 

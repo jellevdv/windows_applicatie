@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,11 +8,13 @@ using System.Threading.Tasks;
 namespace WindowsApplicatie.Models
 {
 
-    public class Item
+    public class Item : INotifyPropertyChanged
     {
         #region fields
         public string _name;
         public Category _category;
+
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region properties
