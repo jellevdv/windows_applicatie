@@ -72,7 +72,7 @@ namespace WindowsApplicatie.ViewModels
 
         private void GoToSpecificHoliday(object p)
         {
-            //Frame.Navigate(typeof(SpecificHolidayPage));
+          //  Frame.Navigate(typeof(SpecificHolidayPage));
        //     this.Content = new SpecificHolidayPage();
         }
 

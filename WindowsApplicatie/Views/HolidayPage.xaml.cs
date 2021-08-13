@@ -34,7 +34,9 @@ namespace WindowsApplicatie.Views
             if (!StandardPopup.IsOpen) { StandardPopup.IsOpen = true; }
         }
 
-        
-
+        private void listViewHolidays_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Console.WriteLine("holiday clicked");
+        }
     }
 }

@@ -22,7 +22,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Content="Add Category&#xD;&#xA;" Click="ShowPopupOffsetClicked" Margin="1163,108,0,0" VerticalAlignment="Top" Height="80" Width="268" FontSize="20"/>
+            <Button Content="Add Category&#xD;&#xA;" Click="ShowPopupOffsetClicked" Margin="918,108,0,0" VerticalAlignment="Top" Height="80" Width="268" FontSize="20"/>
             <TextBlock HorizontalAlignment="Left" Margin="246,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="197" FontSize="36" RenderTransformOrigin="-0.215,0.909"><Run Text="Categories"/><LineBreak/><Run/></TextBlock>
 
             <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
@@ -41,7 +41,7 @@
                             </Grid>
                             <Grid Height="33" Width="200">
                                 <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>
-                                <Button Content="Enter"  Command="{Binding AddCategoryCommand}" CommandParameter="{Binding Text, ElementName=NewCategoryName}" HorizontalAlignment="Center" Width="62"/>
+                                <Button Content="Enter"  Click="ClosePopupClicked"  Command="{Binding AddCategoryCommand}" CommandParameter="{Binding Text, ElementName=NewCategoryName}" HorizontalAlignment="Center" Width="62"/>
                             </Grid>
                         </StackPanel>
                     </Border>
@@ -50,8 +50,8 @@
 
 
         </Grid>
-        
-        
+
+
 
     </ScrollViewer>
 </Page>

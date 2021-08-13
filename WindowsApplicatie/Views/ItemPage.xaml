@@ -11,7 +11,7 @@
 
     <ScrollViewer>
         <Grid>
-            <ListBox x:Name="ItemList" Margin="-2,312,0,10" ItemsSource="{Binding Items}">
+            <ListBox x:Name="ItemList" Margin="-2,200,0,10" ItemsSource="{Binding Items}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
@@ -20,7 +20,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Content="Add Item&#xD;&#xA;" Click="ShowPopupOffsetClicked" Margin="1163,108,0,0" VerticalAlignment="Top" Height="80" Width="268" FontSize="20"/>
+            <Button Content="Add Item&#xD;&#xA;" Click="ShowPopupOffsetClicked" Margin="851,76,0,0" VerticalAlignment="Top" Height="80" Width="268" FontSize="20"/>
             <TextBlock HorizontalAlignment="Left" Margin="246,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="197" FontSize="36" RenderTransformOrigin="-0.215,0.909"><Run Text="Items"/><LineBreak/><Run/></TextBlock>
 
             <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">

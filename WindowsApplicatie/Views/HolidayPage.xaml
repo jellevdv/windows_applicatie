@@ -9,18 +9,18 @@
 
     <Grid Margin="0,148,0,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition Width="1075*"/>
+            <ColumnDefinition Width="119*"/>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="276*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.ColumnSpan="4">
-            <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="659" ItemsSource="{Binding Holidays}">
+        <ScrollViewer Grid.ColumnSpan="5">
+            <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="659" ItemsSource="{Binding Holidays}" SelectionChanged="listViewHolidays_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
                             <TextBlock Text="{Binding Name}" Margin="2"/>
-                            <TextBlock Text="{Binding Description}" Margin="2"/>
                             <TextBlock Text="Destination:" Margin="2"/>
                             <TextBlock Text="{Binding Destination}" Margin="2"/>
                             <TextBlock Text="Departure date:" Margin="10,2,0,2"/>
@@ -31,11 +31,10 @@
             </ListBox>
 
         </ScrollViewer>
-        <Button Content="Add Holiday" Command="{Binding AddHolidayCommand}" CommandParameter="AddHoliday"  Click="ShowPopupOffsetClicked" Margin="930,-33,0,830" VerticalAlignment="Stretch" Width="486" Grid.ColumnSpan="4" FontSize="24"/>
+        <Button Content="Add Holiday" Command="{Binding AddHolidayCommand}" CommandParameter="AddHoliday"  Click="ShowPopupOffsetClicked" Margin="588,-47,0,844" VerticalAlignment="Stretch" Width="486" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,-42,0,0" Text="Holidays" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="226" FontSize="48"/>
-        <Button Content="Test New Page" Command="{Binding GoToSpecificHolidayCommand}" CommandParameter="Hawaii"  Margin="930,27,0,779" VerticalAlignment="Stretch" Width="486" Grid.ColumnSpan="4" FontSize="24"/>
 
-        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
+        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup" Grid.ColumnSpan="2">
             <Grid Margin="193,162,194,162">
                 <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
