@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 namespace WindowsApplicatie.Models
 {
 
-    public class Item : INotifyPropertyChanged
+    public class Item 
     {
         #region fields
         public string _name;
         public Category _category;
 
-        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region properties

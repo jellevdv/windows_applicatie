@@ -7,66 +7,70 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Margin="0,148,0,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1075*"/>
-            <ColumnDefinition Width="119*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="30*"/>
-            <ColumnDefinition Width="276*"/>
-        </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.ColumnSpan="5">
-            <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="659" ItemsSource="{Binding Holidays}" SelectionChanged="listViewHolidays_SelectionChanged">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="2">
-                            <TextBlock Text="{Binding Name}" Margin="2"/>
-                            <TextBlock Text="Destination:" Margin="2"/>
-                            <TextBlock Text="{Binding Destination}" Margin="2"/>
-                            <TextBlock Text="Departure date:" Margin="10,2,0,2"/>
-                            <TextBlock Text="{Binding DepartureDate}" Margin="2"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+        <Grid Margin="0,148,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1075*"/>
+                <ColumnDefinition Width="119*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="276*"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer Grid.ColumnSpan="5">
+                <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="659" ItemsSource="{Binding Holidays}" SelectionChanged="ListViewHolidays_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <TextBlock Text="{Binding Name}" Margin="2"/>
+                                <TextBlock Text="Destination:" Margin="2"/>
+                                <TextBlock Text="{Binding Destination}" Margin="2"/>
+                                <TextBlock Text="Departure date:" Margin="10,2,0,2"/>
+                                <TextBlock Text="{Binding DepartureDate}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-        </ScrollViewer>
-        <Button Content="Add Holiday" Command="{Binding AddHolidayCommand}" CommandParameter="AddHoliday"  Click="ShowPopupOffsetClicked" Margin="588,-47,0,844" VerticalAlignment="Stretch" Width="486" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,-42,0,0" Text="Holidays" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="226" FontSize="48"/>
+            </ScrollViewer>
+            <Button Content="Add Holiday" Command="{Binding AddHolidayCommand}" CommandParameter="AddHoliday"  Click="ShowPopupOffsetClicked" Margin="588,-47,0,844" VerticalAlignment="Stretch" Width="486" FontSize="24"/>
+            <TextBlock HorizontalAlignment="Left" Margin="30,-42,0,0" Text="Holidays" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="226" FontSize="48"/>
 
-        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup" Grid.ColumnSpan="2">
-            <Grid Margin="193,162,194,162">
-                <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+            <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup" Grid.ColumnSpan="2">
+                <Grid Margin="193,162,194,162">
+                    <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                 BorderThickness="2">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Grid>
-                            <TextBlock Text="Naam van de reis:" FontSize="24.667" Margin="0,0,1,0"/>
-                            <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Trektocht" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
-                        </Grid>
-                        <Grid>
-                            <TextBlock Text="Bestemming: " FontSize="24.667" HorizontalAlignment="Left" Width="944"/>
-                            <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Schotland" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
-                        </Grid>
-                        <Grid>
-                            <TextBlock Text="Vertrekdatum: " FontSize="24.667" HorizontalAlignment="Center" Width="953"/>
-                            <CalendarDatePicker Margin="477,8,0,0" VerticalAlignment="Top" Height="39" Width="223"/>
-                        </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="579*"/>
-                                <ColumnDefinition Width="374*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="Omschrijving: " FontSize="24.667" HorizontalAlignment="Left" Width="946" Grid.ColumnSpan="2"/>
-                            <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" Height="82" Grid.ColumnSpan="2"/>
-                        </Grid>
-                        <Grid Height="33" Width="200">
-                            <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>
-                            <Button Content="Enter" HorizontalAlignment="Center" Width="62"/>
-                        </Grid>
-                    </StackPanel>
-                </Border>
-            </Grid>
-        </Popup>
-    </Grid>
-</Page>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid>
+                                <TextBlock Text="Naam van de reis:" FontSize="24.667" Margin="0,0,1,0"/>
+                                <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Trektocht" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                            </Grid>
+                            <Grid>
+                                <TextBlock Text="Bestemming: " FontSize="24.667" HorizontalAlignment="Left" Width="944"/>
+                                <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" PlaceholderText="bv. Schotland" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                            </Grid>
+                            <Grid>
+                                <TextBlock Text="Vertrekdatum: " FontSize="24.667" HorizontalAlignment="Center" Width="953"/>
+                                <CalendarDatePicker Margin="477,8,0,0" VerticalAlignment="Top" Height="39" Width="223"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="579*"/>
+                                    <ColumnDefinition Width="374*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Omschrijving: " FontSize="24.667" HorizontalAlignment="Left" Width="946" Grid.ColumnSpan="2"/>
+                                <TextBox HorizontalAlignment="Left" Margin="477,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" Height="82" Grid.ColumnSpan="2"/>
+                            </Grid>
+                            <Grid Height="33" Width="200">
+                                <Button Content="Close"  Click="ClosePopupClicked" HorizontalAlignment="Left"/>
+                                <Button Content="Enter" HorizontalAlignment="Center" Width="62"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Popup>
+            <StackPanel x:Name="HolidayDetails">
+                <TextBlock FontWeight="Bold" Text="{Binding Name, Mode=OneWay}" />
+                <TextBlock FontWeight="Bold" Text="hello" />
+            </StackPanel>
+        </Grid>
+    </Page>

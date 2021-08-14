@@ -20,8 +20,10 @@ namespace WindowsApplicatie.ViewModels
         public ObservableCollection<Holiday> Holidays { get; set; } //data
         public RelayCommand AddHolidayCommand { get; set; } //command om holiday toe te voegen
         public RelayCommand GoToSpecificHolidayCommand { get; set; } //command om naar specifieke holiday te gaan
-        public event PropertyChangedEventHandler PropertyChanged; //voor als we op een bepaalde holiday klikken
-        Holiday selectedHoliday;
+        public event PropertyChangedEventHandler OnPropertyChanged; //voor als we op een bepaalde holiday klikken
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public Holiday selectedHoliday;
    
 
         public HolidayPageViewModel()
@@ -40,13 +42,13 @@ namespace WindowsApplicatie.ViewModels
 
         public Holiday SelectedHoliday
         {
-            get => selectedHoliday;
+            get
+            {
+                return selectedHoliday;
+            }
             set
             {
-                selectedHoliday = value;
-                var args = new PropertyChangedEventArgs(nameof(SelectedHoliday));
-
-                PropertyChanged?.Invoke(this, args);
+                    selectedHoliday = value;
             }
         }
 

@@ -20,6 +20,7 @@ namespace WindowsApplicatie.Models
 
         #region Properties
         public int Id { get; set; }
+
         public string Name
         {
             get
@@ -33,6 +34,7 @@ namespace WindowsApplicatie.Models
                     throw new ArgumentException("Name can't be empty");
                 }
                 _name = value;
+                NotifyPropertyChanged("Name");
             }
         }
         public string Description
@@ -109,10 +111,21 @@ namespace WindowsApplicatie.Models
             Users.Add(user);
         }
 
+        public event PropertyChangedEventHandler OnPropertyChanged;
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String propertyName)
+        {
+            PropertyChangedEventHandler handler = OnPropertyChanged;
+            if(null != handler)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            OnPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 

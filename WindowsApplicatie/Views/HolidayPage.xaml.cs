@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Drawing.Charts;
+using System;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -24,19 +25,19 @@ namespace WindowsApplicatie.Views
         public void ClosePopupClicked(object sender, RoutedEventArgs e)
         {
             // if the Popup is open, then close it
-            if (StandardPopup.IsOpen) { StandardPopup.IsOpen = false; }
+          //  if (StandardPopup.IsOpen) { StandardPopup.IsOpen = false; }
         }
 
         // Handles the Click event on the Button on the page and opens the Popup. 
         private void ShowPopupOffsetClicked(object sender, RoutedEventArgs e)
         {
             // open the Popup if it isn't open already 
-            if (!StandardPopup.IsOpen) { StandardPopup.IsOpen = true; }
+          //  if (!StandardPopup.IsOpen) { StandardPopup.IsOpen = true; }
         }
 
-        private void listViewHolidays_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListViewHolidays_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine("holiday clicked");
+            Console.WriteLine(sender);
         }
     }
 }
