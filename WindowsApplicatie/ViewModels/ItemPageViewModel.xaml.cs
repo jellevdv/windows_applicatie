@@ -32,10 +32,11 @@ namespace WindowsApplicatie.ViewModels
         public ItemPageViewModel()
         {
             AddItemCommand = new RelayCommand((param) => AddItem(param));
-            Items = new ObservableCollection<Item>();
-
-            Items.Add(new Item( "IPHONE"));
-            Items.Add(new Item("TestObject"));
+            Items = new ObservableCollection<Item>
+            {
+                new Item("IPHONE"),
+                new Item("TestObject")
+            };
         }
 
         private async void HaalDataOp()
