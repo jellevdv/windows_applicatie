@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 namespace WindowsApplicatie.Models
 {
 
-    public class Item 
+    public class Item : INotifyPropertyChanged
     {
         #region fields
         public string _name;
         public Category _category;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
 
@@ -32,8 +34,19 @@ namespace WindowsApplicatie.Models
                     throw new ArgumentException("Name can't be empty");
                 }
                 _name = value;
+                NotifyPropertyChanged("Name");
             }
         }
+
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (null != handler)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         public List<ItemTask> Tasks { get; set; }
         public Category Category { set; get; }
 

@@ -27,6 +27,7 @@ namespace WindowsApplicatie.ViewModels
 
   
         public ObservableCollection<Item> Items { get; set; }
+        public object SelectedItem { get; set; }
         public RelayCommand AddItemCommand { get; set; } //command
 
         public ItemPageViewModel()

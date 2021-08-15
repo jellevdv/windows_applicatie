@@ -7,21 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:WindowsApplicatie.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
-    <Page.Resources>
-        <DataTemplate x:Key="BasicListViewTemplate" x:DataType="local:ItemPage">
-            <TextBlock Text="{x:Bind Name}" x:Phase="1" Margin="0,5,0,5"/>
-        </DataTemplate>
-    </Page.Resources>
-
-    <ListView x:Name="BaseExample"
-                    ItemTemplate="{StaticResource BasicListViewTemplate}"
-                    BorderThickness="1"
-                    BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
-                    Width="350" 
-                    Height="400"
-                    HorizontalAlignment="Left"/>
+    <Grid>
+    <ScrollViewer Grid.ColumnSpan="5">
+        <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="659" ItemsSource="{Binding Items}" SelectedItem="SelectedItem" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="{Binding Name}" Margin="2"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
 
+           
+
+    </ScrollViewer>
+
+
+        <StackPanel x:Name="HolidayDetails" >
+            <ListBox  ItemsSource="{Binding SelectedItem}" >
+                <TextBlock FontWeight="Bold" Text="{Binding Name}"/>
+                <TextBlock FontWeight="Bold" Text="hello" />
+            </ListBox>
+         
+    </StackPanel>
+    </Grid>
 
 </Page>

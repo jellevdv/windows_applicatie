@@ -31,11 +31,13 @@ namespace WindowsApplicatie.ViewModels
             AddHolidayCommand = new RelayCommand((param) => AddHoliday(param));
             GoToSpecificHolidayCommand = new RelayCommand((param) => GoToSpecificHoliday(param));
 
-            Holidays = new ObservableCollection<Holiday>();
-            Holidays.Add(new Holiday("Honeymoon", "Hawaii", "Honeymoon for two weeks", DateTime.Now));
-            Holidays.Add(new Holiday("Hiking trip", "Scotland", "Hikingtrip with friends", DateTime.Now));
+            Holidays = new ObservableCollection<Holiday>
+            {
+                new Holiday("Honeymoon", "Hawaii", "Honeymoon for two weeks", DateTime.Now),
+                new Holiday("Hiking trip", "Scotland", "Hikingtrip with friends", DateTime.Now)
+            };
 
-            
+
 
             //HaalDataOp();
         }

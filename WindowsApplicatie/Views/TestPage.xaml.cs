@@ -4,6 +4,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using WindowsApplicatie.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -15,10 +16,12 @@ namespace WindowsApplicatie.Views
     public sealed partial class TestPage : Page
     {
         ObservableCollection<listboxData> lst = new ObservableCollection<listboxData>();
+
         public TestPage()
         {
             this.InitializeComponent();
             //lbDetails.ItemsSource = lst;
+            this.DataContext = new ItemPageViewModel();
         }
 
         
