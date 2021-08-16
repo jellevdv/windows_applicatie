@@ -31,6 +31,10 @@ namespace WindowsApplicatie.Views
 
         }
 
+        private void TestClick_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            System.Console.WriteLine("tapped works");
+        }
     }
 
     public class listboxData
