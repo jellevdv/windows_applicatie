@@ -18,6 +18,7 @@ namespace WindowsApplicatie.ViewModels
         public EmployeeListViewModel()
         {
             AddEmployeeCommand = new RelayCommand(AddEmployee);
+
             Employees = new ObservableCollection<string>
             {
                 "Jelle Vandevyvere",

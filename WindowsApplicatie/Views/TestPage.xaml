@@ -17,7 +17,7 @@
     <Page.Content>
         <StackPanel>
             <TextBox PlaceholderText="Employee Name" Text="{Binding EmployeeName}"></TextBox>
-            <Button Content="Add" Command="{Binding AddEmployeeCommand}"></Button>
+            <Button Content="Add" Command="{Binding AddEmployeeCommand}" CommandParameter="AddEmployee"></Button>
             
             
             

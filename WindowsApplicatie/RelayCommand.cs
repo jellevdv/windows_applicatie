@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MVVMLabCompleted.Utils
+namespace WindowsApplicatie
 {
     public class RelayCommand : ICommand
     {
@@ -29,6 +25,9 @@ namespace MVVMLabCompleted.Utils
             canExecute = test;
         }
 
+        public RelayCommand(Action addEmployee)
+        {
+        }
 
         public bool CanExecute(object parameter)
         {
