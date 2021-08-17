@@ -11,37 +11,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <vm:ItemPageViewModel></vm:ItemPageViewModel>
+        <vm:EmployeeListViewModel/>
     </Page.DataContext>
-    
-    <Grid>
-        <ListView x:Name="listView" Grid.ColumnSpan="5">
-            <ListBox x:Name="listViewHolidays" Margin="5" Width="1502" Height="659" ItemsSource="{Binding Items}" SelectedItem="SelectedItem" >
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="2">
-                            <TextBlock Text="{Binding Name}" Margin="2"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
 
-
-
-            <StackPanel  DataContext="{Binding SelectedItem, ElementName=listView}" >
-            <TextBlock FontWeight="Bold" Text="{Binding Name}"/>
-               
-            </StackPanel>
-        </ListView>
-
-
-        <StackPanel x:Name="HolidayDetails" DataContext="{Binding SelectedItem, ElementName=listView}" >
-            <TextBlock FontWeight="Bold" Text="{Binding Name}"/>
-            <TextBlock x:Name="TestClick" FontWeight="Bold" Text="Click here" Tapped="TestClick_Tapped"/>
-
+    <Page.Content>
+        <StackPanel>
+            <ListView x:Name="lvEmployees" ItemsSource="{Binding Employees}">
+                
+            </ListView>
         </StackPanel>
-
-
-    </Grid>
+    </Page.Content>
 
 </Page>

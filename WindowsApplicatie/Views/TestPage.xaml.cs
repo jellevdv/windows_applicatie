@@ -1,9 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+﻿using Windows.UI.Xaml.Controls;
 using WindowsApplicatie.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -15,38 +10,13 @@ namespace WindowsApplicatie.Views
     /// </summary>
     public sealed partial class TestPage : Page
     {
-        ObservableCollection<listboxData> lst = new ObservableCollection<listboxData>();
+
 
         public TestPage()
         {
             this.InitializeComponent();
-            //lbDetails.ItemsSource = lst;
-            this.DataContext = new ItemPageViewModel();
+            lvEmployees.ItemsSource = new string[] { "Jelle Vandevyvere", "Kadir Olmez", "Gino Latino", "Peter Vercammen" };
         }
 
-        
-        private void btnDetails_Click_1(object sender, RoutedEventArgs e)
-        {
-            lst.Add(new listboxData("Textblock" + lst.Count, new SolidColorBrush(Colors.YellowGreen)));
-
-        }
-
-        private void TestClick_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            System.Console.WriteLine("tapped works");
-        }
     }
-
-    public class listboxData
-    {
-        public string text { get; set; }
-        public SolidColorBrush bg { get; set; }
-
-        public listboxData(string text, SolidColorBrush bg)
-        {
-            this.text = text;
-            this.bg = bg;
-        }
-    }
-
 }
