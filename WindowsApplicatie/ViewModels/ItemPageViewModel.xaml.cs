@@ -28,11 +28,11 @@ namespace WindowsApplicatie.ViewModels
   
         public ObservableCollection<Item> Items { get; set; }
         public object SelectedItem { get; set; }
-        public RelayCommand AddItemCommand { get; set; } //command
+       // public RelayCommand AddItemCommand { get; set; } //command
 
         public ItemPageViewModel()
         {
-            AddItemCommand = new RelayCommand((param) => AddItem(param));
+       //     AddItemCommand = new RelayCommand((param) => AddItem(param));
             Items = new ObservableCollection<Item>
             {
                 new Item("IPHONE"),

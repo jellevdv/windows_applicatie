@@ -14,12 +14,12 @@ namespace WindowsApplicatie.ViewModels
     /// </summary>
     public sealed partial class CategoryPageViewModel : Page
     {
-        public ObservableCollection<Category> Categories { get; set; } //data
-        public RelayCommand AddCategoryCommand { get; set; } //command
+      public ObservableCollection<Category> Categories { get; set; } //data
+       // public RelayCommand AddCategoryCommand { get; set; } //command
 
         public CategoryPageViewModel()
         {
-            AddCategoryCommand = new RelayCommand((param) => AddCategory(param));
+         //   AddCategoryCommand = new RelayCommand((param) => AddCategory(param));
 
             Categories = new ObservableCollection<Category>();
 

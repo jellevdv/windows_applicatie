@@ -28,8 +28,8 @@ namespace WindowsApplicatie.ViewModels
 
         public HolidayPageViewModel()
         {
-            AddHolidayCommand = new RelayCommand((param) => AddHoliday(param));
-            GoToSpecificHolidayCommand = new RelayCommand((param) => GoToSpecificHoliday(param));
+            //AddHolidayCommand = new RelayCommand((param) => AddHoliday(param));
+           // GoToSpecificHolidayCommand = new RelayCommand((param) => GoToSpecificHoliday(param));
 
             Holidays = new ObservableCollection<Holiday>
             {
