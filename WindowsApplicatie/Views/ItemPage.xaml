@@ -15,6 +15,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
+                            <CheckBox Checked="ItemChecked" />
                             <TextBlock Text="{Binding Name}" Margin="2"/>
                         </StackPanel>
                     </DataTemplate>
@@ -48,5 +49,6 @@
 
 
     </ScrollViewer>
+
 
 </Page>

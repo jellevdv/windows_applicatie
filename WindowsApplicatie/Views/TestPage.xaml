@@ -40,6 +40,8 @@
             <TextBlock x:Name="TestClick" FontWeight="Bold" Text="Click here" Tapped="TestClick_Tapped"/>
 
         </StackPanel>
+
+
     </Grid>
 
 </Page>
