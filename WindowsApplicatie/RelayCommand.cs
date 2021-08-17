@@ -25,9 +25,6 @@ namespace WindowsApplicatie
             canExecute = test;
         }
 
-        public RelayCommand(Action addEmployee)
-        {
-        }
 
         public bool CanExecute(object parameter)
         {

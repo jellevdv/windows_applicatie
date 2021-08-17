@@ -17,11 +17,11 @@
     <Page.Content>
         <StackPanel>
             <TextBox PlaceholderText="Employee Name" Text="{Binding EmployeeName}"></TextBox>
-            <Button Content="Add" Command="{Binding AddEmployeeCommand}" CommandParameter="AddEmployee"></Button>
-            
-            
-            
-            <ListView x:Name="lvEmployees" ItemsSource="{Binding Employees}">
+            <Button x:Name="AddButton" Content="Add" Command="{Binding AddEmployeeCommand}" ></Button>
+            <Button Content="Remove" Command="{Binding RemoveEmployeeCommand}"></Button>
+
+
+            <ListView x:Name="lvEmployees" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}">
                 
             </ListView>
         </StackPanel>
