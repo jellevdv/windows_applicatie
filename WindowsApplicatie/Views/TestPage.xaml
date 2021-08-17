@@ -16,6 +16,11 @@
 
     <Page.Content>
         <StackPanel>
+            <TextBox PlaceholderText="Employee Name" Text="{Binding EmployeeName}"></TextBox>
+            <Button Content="Add" Command="{Binding AddEmployeeCommand}"></Button>
+            
+            
+            
             <ListView x:Name="lvEmployees" ItemsSource="{Binding Employees}">
                 
             </ListView>

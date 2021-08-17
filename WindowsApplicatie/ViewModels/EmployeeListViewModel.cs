@@ -1,12 +1,19 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace WindowsApplicatie.ViewModels
 {
     class EmployeeListViewModel
     {
+        //command
+        public ICommand AddEmployeeCommand => new Command(AddEmployee);
 
-
+        //obersavble list 
         public ObservableCollection<string> Employees { get; set; }
+
+        //Binds itself to the textbox in the view itself
+        public string EmployeeName { get; set; }
 
         public EmployeeListViewModel()
         {
@@ -18,5 +25,10 @@ namespace WindowsApplicatie.ViewModels
                 "Gino Latino"
             };
         }
+
+        public void AddEmployee()
+        {
+            Employees.Add(EmployeeName);
+        }
     }
-    }
+}
