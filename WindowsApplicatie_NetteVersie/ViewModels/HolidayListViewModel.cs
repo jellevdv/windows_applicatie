@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
-using Newtonsoft.Json;
-
+using Xamarin.Forms;
 
 namespace WindowsApplicatie_NetteVersie.ViewModels
 {
     class HolidayListViewModel
     {
-        //observable list of holidays
+        public ICommand AddHolidayCommand => new Command(AddHoliday);
+        public ICommand RemoveHolidayCommand => new Command(RemoveHoliday);
+
         public ObservableCollection<Holiday> Holidays { get; set; }
+
+        public Holiday SelectedHoliday { get; set; }
 
         public HolidayListViewModel()
         {
@@ -24,7 +25,6 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
                 new Holiday("Hiking Trip", "Trip with friends", "Scotland", DateTime.Now)
             };
 
-            //Haal data op
             //HaalDataOp();
         }
 
@@ -40,6 +40,16 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             {
                 this.Holidays.Add(h);
             }
+        }
+
+        public void AddHoliday()
+        {
+            Console.WriteLine("AddHolidayClicked");
+        }
+
+        public void RemoveHoliday()
+        {
+            Holidays.Remove(SelectedHoliday);
         }
 
     }
