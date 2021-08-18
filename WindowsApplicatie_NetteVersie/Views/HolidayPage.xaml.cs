@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 
@@ -27,7 +28,8 @@ namespace WindowsApplicatie_NetteVersie.Views
 
         private void GoToDetailScreenHoliday_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
+
     }
 }
