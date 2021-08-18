@@ -50,7 +50,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public void AddHoliday()
         {
-            Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, HolidayDepartureDate));
+            Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now));
         }
 
         public void RemoveHoliday()

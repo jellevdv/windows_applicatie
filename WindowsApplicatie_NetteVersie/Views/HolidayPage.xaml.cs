@@ -24,5 +24,10 @@ namespace WindowsApplicatie_NetteVersie.Views
         {
             if (Popup.IsOpen) { Popup.IsOpen = false; }
         }
+
+        private void GoToDetailScreenHoliday_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

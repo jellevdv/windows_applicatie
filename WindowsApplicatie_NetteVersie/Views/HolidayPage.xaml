@@ -19,35 +19,35 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
-                            <TextBlock Text="{Binding Name}" Margin="2"/>
+                            <TextBlock Text="{Binding Name}" Margin="8"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <Button x:Name="AddHolidayBtn" Content="Add Holiday" Command="{Binding AddHolidayCommand}" Click="AddHolidayBtn_Click" HorizontalAlignment="Right" Margin="0,0,72,0" MinWidth="148" Padding="4,4,4,4"/>
-            <Button x:Name="RemoveHolidayBtn" Content="Remove Holiday" Command="{Binding RemoveHolidayCommand}" HorizontalAlignment="Right" Margin="0,24,72,0" MinWidth="148"/>
+            <Button x:Name="GoToDetailScreenHoliday" Content="See details"  Click="GoToDetailScreenHoliday_Click" MinWidth="148" Padding="4,4,4,4" HorizontalAlignment="Right" Margin="0,0,72,24"/>
+            <Button x:Name="AddHolidayBtn" Content="Add Holiday"  Click="AddHolidayBtn_Click" HorizontalAlignment="Right" Margin="0,0,72,0" MinWidth="148" Padding="4,4,4,4"/>
+            <Button x:Name="RemoveHolidayBtn" Content="Remove Holiday" Command="{Binding RemoveHolidayCommand}" HorizontalAlignment="Right" Margin="0,24,72,0" MinWidth="148" Background="#33BDA8A8"/>
 
             <Popup x:Name="Popup">
                 <StackPanel Grid.Row="1" Margin="52,37,974,461" Padding="72,72,72,72" FocusVisualPrimaryBrush="#FFF7EBEB" FocusVisualSecondaryBrush="#99FFEAEA" BorderThickness="5,0,0,0" Background="#FFE0DEDE" >
                     <TextBlock  TextWrapping="Wrap" Text="Name of your holiday " Margin="0,0,0,8"/>
-                    <TextBox x:Name="HolidayName" TextWrapping="Wrap" Margin="0,0,0,16" />
+                    <TextBox x:Name="HolidayName" Text="{Binding HolidayName}" TextWrapping="Wrap" Margin="0,0,0,16" />
                     <TextBlock  TextWrapping="Wrap" Text="Destination " Margin="0,0,0,8" />
-                    <TextBox x:Name="HolidayDestination" TextWrapping="Wrap" Margin="0,0,0,16" />
+                    <TextBox x:Name="HolidayDestination" Text="{Binding HolidayDestination}" TextWrapping="Wrap" Margin="0,0,0,16" />
                     <TextBlock  TextWrapping="Wrap" Text="Short description " Margin="0,0,0,8"/>
-                    <TextBox x:Name="HolidayDescription" TextWrapping="Wrap" Margin="0,0,0,16" />
+                    <TextBox x:Name="HolidayDescription" Text="{Binding HolidayDescription}" TextWrapping="Wrap" Margin="0,0,0,16" />
                     <TextBlock  TextWrapping="Wrap" Text="DepartureDate: " Margin="0,0,0,8"/>
-                    <CalendarDatePicker x:Name="HolidayDepartureDate" VerticalAlignment="Top"/>
+                    <CalendarDatePicker x:Name="HolidayDepartureDate"  VerticalAlignment="Top"/>
                     <StackPanel Height="88" BorderThickness="0,0,0,0" Margin="0,24,0,0" HorizontalAlignment="Left" Width="228" Orientation="Horizontal" VerticalAlignment="Center">
-                        <Button Content="Enter" Margin="0,0,16,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <Button Content="Enter" Command="{Binding AddHolidayCommand}" Margin="0,0,16,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Button Content="Cancel"  Click="ClosePopupClicked" VerticalAlignment="Top" Background="#33C3B2B2"/>
                     </StackPanel>
                 </StackPanel>
             </Popup>
         </StackPanel>
 
-       
+
     </Page.Content>
-    
+
 
 </Page>
