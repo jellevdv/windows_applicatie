@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WindowsApplicatie_NetteVersie.Models
 {
-    class Model
+   public class Category
     {
+
     }
 }
