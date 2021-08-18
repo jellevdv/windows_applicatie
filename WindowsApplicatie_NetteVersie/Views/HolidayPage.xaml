@@ -5,10 +5,26 @@
     xmlns:local="using:WindowsApplicatie_NetteVersie.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:WindowsApplicatie_NetteVersie.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="Holiday"></TextBlock>
-    </Grid>
+    <Page.DataContext>
+        <vm:HolidayListViewModel/>
+    </Page.DataContext>
+
+    <Page.Content>
+        <StackPanel>
+            <ListView x:Name="lvHolidays" ItemsSource="{Binding Holidays}" SelectedItem="{Binding SelectedHoliday}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Name}" Margin="2"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Page.Content>
+
 </Page>

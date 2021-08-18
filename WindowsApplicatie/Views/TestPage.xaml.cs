@@ -15,7 +15,6 @@ namespace WindowsApplicatie.Views
         public TestPage()
         {
             this.InitializeComponent();
-            lvEmployees.ItemsSource = new string[] { "Jelle Vandevyvere", "Kadir Olmez", "Gino Latino", "Peter Vercammen" };
         }
 
     }
