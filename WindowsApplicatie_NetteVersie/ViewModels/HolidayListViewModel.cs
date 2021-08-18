@@ -17,6 +17,12 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public Holiday SelectedHoliday { get; set; }
 
+        public string HolidayName { get; set; }
+        public string HolidayDestination { get; set; }
+        public string HolidayDescription { get; set; }
+        public DateTime HolidayDepartureDate { get; set; }
+
+
         public HolidayListViewModel()
         {
             Holidays = new ObservableCollection<Holiday>
@@ -44,7 +50,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public void AddHoliday()
         {
-            Console.WriteLine("AddHolidayClicked");
+            Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, HolidayDepartureDate));
         }
 
         public void RemoveHoliday()
