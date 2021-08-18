@@ -2,6 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using WindowsApplicatie_NetteVersie.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -15,6 +16,7 @@ namespace WindowsApplicatie_NetteVersie.Views
         public HolidayPage()
         {
             this.InitializeComponent();
+            DataContext = new HolidayListViewModel();
         }
 
         private void AddHolidayBtn_Click(object sender, RoutedEventArgs e)
