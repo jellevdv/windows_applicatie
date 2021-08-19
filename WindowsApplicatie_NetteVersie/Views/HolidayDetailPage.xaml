@@ -25,25 +25,21 @@
                 <TextBlock Text="{Binding Holiday.DepartureDate.Date.Day, Mode=OneWay}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-        
-        <StackPanel Margin="122,420,122,427">
-            <ListView x:Name="lvCategories" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Margin="72,72,72,77" Background="#FFEEEEEE">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="2">
-                            <TextBlock Text="{Binding Name}" Margin="8"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-        <TextBlock Text="{Binding SelectedCategory.Description}"></TextBlock>
 
-        <StackPanel Margin="128,642,116,205">
-            <ListView Height="150" Background="#FFEEEEEE" Width="854"/>
-        </StackPanel>
+        <ListView x:Name="lvCategories" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Margin="322,389,324,479" Background="#FFEEEEEE" MaxHeight="132">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="{Binding Name}" Margin="8"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        
+        <ListView Background="#FFEEEEEE" Margin="322,575,324,265" MaxHeight="132"/>
+        <TextBlock  Text="{Binding SelectedItem.Description, ElementName=lvCategories}"  HorizontalAlignment="Left" Margin="322,547,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="816" Opacity="0.5" FontWeight="Bold" FocusVisualPrimaryBrush="Gainsboro" Height="40"></TextBlock>
+
+
 
 
     </Grid>

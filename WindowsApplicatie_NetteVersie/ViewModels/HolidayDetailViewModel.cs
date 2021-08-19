@@ -13,9 +13,20 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 {
     public class HolidayDetailViewModel
     {
+        //The holiday for which you are packing
         public Holiday Holiday { get; set; }
+
+        //All categories
         public ObservableCollection<Category> Categories { get; set; }
+
+        //All items of the selected Category
+        public ObservableCollection<Item> Items { get; set; }
+
+        //Selected category from listview
         public Category SelectedCategory { get; set; }
+
+        //selected item from listview
+        public Item SelectedItem { get; set; }
 
 
         public HolidayDetailViewModel()
@@ -25,7 +36,9 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             {
                 new Category("Electronics", "All our electronic devices"),
                 new Category("Watergear", "Everything we need to swim"),
-                new Category("Handluggage","For in the plane")
+                new Category("Handluggage","For in the plane"),
+                new Category("Test","test")
+        
             };
 
             //HaalDataOp();
