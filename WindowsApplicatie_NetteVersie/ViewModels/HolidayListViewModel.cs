@@ -53,7 +53,8 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         public void AddHoliday()
         {
             //probleem hier is dat de name, descr... niet meegegeven worden 
-            Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now));
+            var task = new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now);
+            Holidays.Add(task);
         }
 
         public void RemoveHoliday()
