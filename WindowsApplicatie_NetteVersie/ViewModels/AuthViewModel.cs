@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.Views;
@@ -10,13 +11,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 {
     class AuthViewModel : INotifyPropertyChanged
     {
-        private AuthService _authService;
         private string _passwError;
         private string _emailError;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand TryLogin => new Command(Login);
         public ICommand TryRegister => new Command(Register);
 
         //public ObservableCollection<Holiday> Holidays { get; set; }
@@ -60,13 +59,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public AuthViewModel()
         {
-            AuthService auth = new AuthService();
-            _authService = auth;
         }
 
-        public async void Login()
+        public async Task<User> Login()
         {
-            (User u, CustomError c) = await _authService.Login(Email, Passw);
+            (User u, CustomError c) = await AuthService.Login(Email, Passw);
             if (c.Message != null)
             {
 
@@ -90,11 +87,10 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
                     default:
                         break;
                 }
-
             }
-
-
+            return u;
         }
+
 
         public void Register()
         {

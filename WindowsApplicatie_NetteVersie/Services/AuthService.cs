@@ -8,12 +8,12 @@ using WindowsApplicatie_NetteVersie.Models;
 
 namespace WindowsApplicatie_NetteVersie
 {
-    class AuthService
+    static class AuthService
     {
 
-        public AuthService() { }
+        public static User AppUser;
 
-        public async Task<(User, CustomError)> Login(string email, string password)
+        public static async Task<(User, CustomError)> Login(string email, string password)
         {
             HttpClient client = new HttpClient();
             User u = new User();
@@ -29,7 +29,9 @@ namespace WindowsApplicatie_NetteVersie
 
                 var stringPayload = JsonConvert.SerializeObject(loginInput);
                 var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync("https://na2backeend.azurewebsites.net/api/user", httpContent);
+                var result = await client.PostAsync("https://na2backend.azurewebsites.net/api/user", httpContent);
+
+
 
                 if (result.Content != null)
                 {
@@ -37,6 +39,7 @@ namespace WindowsApplicatie_NetteVersie
                     try
                     {
                         u = (User)JObject.Parse(responseContent);
+                        AppUser = u;
                     }
                     catch
                     {
@@ -61,7 +64,7 @@ namespace WindowsApplicatie_NetteVersie
             catch
             {
                 c.Scope = "app";
-                c.Message ="Something went wrong with the connection to the server. Please contact your admin!";
+                c.Message = "Something went wrong with the connection to the server. Please contact your admin!";
             }
 
             return (u, c);

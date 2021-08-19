@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.Views;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -23,6 +12,19 @@ namespace WindowsApplicatie_NetteVersie
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        private User _user;
+
+        public void SetUser(User u)
+        {
+            this._user = u;
+        }
+
+        public User GetUser()
+        {
+            return this._user;
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -48,7 +50,7 @@ namespace WindowsApplicatie_NetteVersie
                         ContentFrame.Navigate(typeof(LoginPage));
                         break;
                     case "HolidayPage":
-                        ContentFrame.Navigate(typeof(HolidayPage));
+                        ContentFrame.Navigate(typeof(HolidayPage), AuthService.AppUser);
                         break;
                     case "CategoryPage":
                         ContentFrame.Navigate(typeof(CategoryPage));

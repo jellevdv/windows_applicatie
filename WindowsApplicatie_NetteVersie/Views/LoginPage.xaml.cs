@@ -75,7 +75,14 @@ namespace WindowsApplicatie_NetteVersie.Views
         {
             System.Diagnostics.Debug.WriteLine(Email);
             System.Diagnostics.Debug.WriteLine(Passw);
-            //(bool b, CustomError c) = await vm.Login();
+
+            User u = await vm.Login();
+            System.Diagnostics.Debug.WriteLine(u.ID);
+
+            if (u.Token !=null)
+            {
+                Frame.Navigate(typeof(HolidayPage), u);
+            }
 
             //if (c.Message != null)
             //{

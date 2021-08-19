@@ -1,7 +1,3 @@
-
-
-using GalaSoft.MvvmLight.Views;
-using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -43,8 +39,8 @@ namespace WindowsApplicatie_NetteVersie.Views
         private void GoToDetailScreenHoliday_Click(object sender, RoutedEventArgs e)
         {
 
- //_navigationService.Navigate(typeof(ContentGridDetailPage), clickedItem.OrderID);
-           //  _navigationService.NavigateTo(ItemPage);
+            //_navigationService.Navigate(typeof(ContentGridDetailPage), clickedItem.OrderID);
+            //  _navigationService.NavigateTo(ItemPage);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -54,6 +50,9 @@ namespace WindowsApplicatie_NetteVersie.Views
             {
                 vm._user = u;
             }
+
+            System.Diagnostics.Debug.WriteLine(u.ID);
+            System.Diagnostics.Debug.WriteLine(u.Token);
         }
 
     }

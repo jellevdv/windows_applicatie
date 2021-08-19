@@ -28,7 +28,7 @@
             <PasswordBox x:Name="Passw" Margin="0,5,0,0" PlaceholderText="********" Password="{Binding Path=Passw, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="40" Padding="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300"/>
             <TextBlock x:Name="PasswError" Margin="0,5,0,0" Text="{Binding Path=PasswError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" Foreground="Red" FontStyle="Italic"  />
 
-            <Button Content="Login" Command="{Binding TryLogin}" HorizontalAlignment="Center" Height="40" Margin="0,20,0,0" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI"  />
+            <Button Content="Login" Click="Button_Login" HorizontalAlignment="Center" Height="40" Margin="0,20,0,0" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI"  />
             <Button FontStyle="Italic" Content="New here? Register..." Click="Button_Click" HorizontalAlignment="Center" Height="40"  Margin="0,20,0,0" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI" Background="Transparent" Foreground="Gray" >
                 <Button.Resources>
                     <ResourceDictionary>
