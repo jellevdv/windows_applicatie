@@ -5,31 +5,45 @@
     xmlns:local="using:WindowsApplicatie_NetteVersie.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:WindowsApplicatie_NetteVersie.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <vm:HolidayDetailViewModel/>
+    </Page.DataContext>
+
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="1317,80,0,0" Text="25% packed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-
         <StackPanel Margin="268,-5,268,585">
-            <TextBlock Text="Honeymoon (name)" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
+            <TextBlock Text="{Binding Holiday.Name}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
             <TextBlock Text="to" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
-            <TextBlock Text="Hawaii (destination)" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
+            <TextBlock Text="{Binding Holiday.Destination}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
             <StackPanel Height="100" HorizontalAlignment="Center" Width="419">
-                <TextBlock Text="Name of Trip" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
-                <TextBlock Text="Short description bla ba" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
-                <TextBlock Text="24/08/2021" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Holiday.Description}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Holiday.DepartureDate.Date.Day, Mode=OneWay}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
         
         <StackPanel Margin="122,420,122,427">
-            <ScrollViewer Height="150" Background="#FFEEEEEE" Width="854"/>
+            <ListView x:Name="lvCategories" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Margin="72,72,72,77" Background="#FFEEEEEE">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Name}" Margin="8"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
+        <TextBlock Text="{Binding SelectedCategory.Description}"></TextBlock>
 
         <StackPanel Margin="128,642,116,205">
             <ListView Height="150" Background="#FFEEEEEE" Width="854"/>
         </StackPanel>
 
+        
 
 
     </Grid>

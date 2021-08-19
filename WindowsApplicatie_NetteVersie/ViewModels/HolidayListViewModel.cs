@@ -29,7 +29,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         {
             Holidays = new ObservableCollection<Holiday>
             {
-                new Holiday("Honeymoon", "Trip with wifey", "Hawaii", DateTime.Now),
+                new Holiday("Honeymoon", "Trip with waifu", "Hawaii", DateTime.Now),
                 new Holiday("Hiking Trip", "Trip with friends", "Scotland", DateTime.Now)
             };
 

@@ -128,6 +128,7 @@
     <Compile Include="Models\ItemTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CategoryListViewModel.cs" />
+    <Compile Include="ViewModels\HolidayDetailViewModel.cs" />
     <Compile Include="ViewModels\HolidayListViewModel.cs" />
     <Compile Include="Views\AddHolidayPage.xaml.cs">
       <DependentUpon>AddHolidayPage.xaml</DependentUpon>
