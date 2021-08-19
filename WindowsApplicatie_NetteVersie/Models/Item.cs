@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 
 namespace WindowsApplicatie_NetteVersie.Models
@@ -7,7 +8,9 @@ namespace WindowsApplicatie_NetteVersie.Models
     {
         private string _name;
         private int _count;
+        private bool _packed;
         private List<ItemTask> _itemTasks;
+       
 
 
         public string Name
@@ -33,6 +36,20 @@ namespace WindowsApplicatie_NetteVersie.Models
             }
         }
 
+        public bool Packed
+        {
+            get
+            {
+                return _packed;
+            }
+            set
+            {
+                _packed = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Packed"));
+            }
+        }
+
+
         public List<ItemTask> ItemTasks
         {
             get
@@ -49,11 +66,13 @@ namespace WindowsApplicatie_NetteVersie.Models
         public Item()
         {
             ItemTasks = new List<ItemTask>();
+            _packed = false;
         }
 
         public Item(string name, int count)
         {
             ItemTasks = new List<ItemTask>();
+            Packed = false;
             Name = name;
             Count = count;
         }
@@ -61,6 +80,14 @@ namespace WindowsApplicatie_NetteVersie.Models
         public void AddTaskToItem(ItemTask itemTask)
         {
             ItemTasks.Add(itemTask);
+        }
+        public void SetItemAsPacked()
+        {
+            this.Packed = true;
+        }
+        public void SetItemAsNotPacked()
+        {
+            this.Packed = false;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

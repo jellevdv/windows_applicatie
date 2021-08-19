@@ -41,6 +41,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">
                         <TextBlock Text="{Binding Name}" Margin="8"/>
+                        <CheckBox IsChecked="{Binding Path=Packed}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -54,8 +55,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">
                         <TextBlock Text="{Binding Description}" Margin="8"/>
-                        <TextBlock Text="{Binding IsDone}" Margin="8"/>
-                   <!--     <CheckBox Content="{Binding IsDone}" x:Name="cbItem" Checked="{Binding HandleCheckCommand}" Unchecked="{Binding HandleUncheckedCommand}" /> -->
+                        <CheckBox IsChecked="{Binding Path=IsDone}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

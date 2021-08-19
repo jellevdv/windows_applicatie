@@ -49,11 +49,12 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             Categories[0].AddItemToCategory(new Item("iPad", 1));
             Categories[0].AddItemToCategory(new Item("iPhone", 1));
             Categories[1].AddItemToCategory(new Item("Towels", 2));
+            Categories[1].Items[0].SetItemAsPacked();
             Categories[1].AddItemToCategory(new Item("Swim shorts", 1));
 
             Categories[0].Items[0].AddTaskToItem(new ItemTask("Opladen", false));
-            Categories[0].Items[0].AddTaskToItem(new ItemTask("Nieuw hoesje aandoen", false));
-            Categories[0].Items[1].AddTaskToItem(new ItemTask("Opladen", true));
+            Categories[0].Items[0].AddTaskToItem(new ItemTask("Nieuw hoesje aandoen", true));
+            Categories[0].Items[1].AddTaskToItem(new ItemTask("Opladen", false));
 
             //HaalDataOp();
         }
