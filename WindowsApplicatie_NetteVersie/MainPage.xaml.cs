@@ -30,7 +30,7 @@ namespace WindowsApplicatie_NetteVersie
 
         private void NavigationView_Loaded(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(HolidayPage));
+            ContentFrame.Navigate(typeof(HomeScreen));
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
