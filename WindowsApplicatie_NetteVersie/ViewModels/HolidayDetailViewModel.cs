@@ -66,11 +66,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         {
             Console.WriteLine("Checked");
         }
+
         private void HandleUnchecked(object obj)
         {
             Console.WriteLine("Unchecked");
         }
-
 
 
         public void AddCategoryToHoliday(Category category)

@@ -5,10 +5,33 @@
     xmlns:local="using:WindowsApplicatie_NetteVersie.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:WindowsApplicatie_NetteVersie.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <vm:CategoryListViewModel/>
+    </Page.DataContext>
+
     <Grid>
-        <TextBlock Text="Category"></TextBlock>
+        <StackPanel Background="#FFF1F1F1" Margin="72,72,72,624" Padding="24,24,0,0">
+            <TextBlock Text="View all your categories" FontSize="24" Width="1410" Height="40"/>
+            <ListView x:Name="listView" Height="218" Width="1282" MaxHeight="218" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Name}" Margin="8"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <TextBlock  Text="{Binding SelectedItem.Description, ElementName=listView}"  HorizontalAlignment="Left" Margin="72,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="816" Opacity="0.5" FontWeight="Bold" FocusVisualPrimaryBrush="Gainsboro" Height="40"></TextBlock>
+
+        <StackPanel Background="White" Margin="0,474,0,208" HorizontalAlignment="Center">
+            <TextBlock Text="Or add a new one" FontSize="24" Width="238" HorizontalAlignment="Center" Margin="0,0,0,24"/>
+            <Button x:Name="AddCategoryButton" Content="Add Category"  Click="AddCategoryButton_Click" MinWidth="148" Padding="4,4,4,4" Background="#3336D426" FocusVisualPrimaryBrush="#FF90DAB5" Width="251" FontSize="16" FontWeight="Normal"/>
+        </StackPanel>
+
     </Grid>
 </Page>
