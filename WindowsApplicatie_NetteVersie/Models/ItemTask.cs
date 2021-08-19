@@ -11,15 +11,13 @@ namespace WindowsApplicatie_NetteVersie.Models
     {
         public string Description { get; set; }
         public bool IsDone { get; set; }
-        public Item Item { get; set; }
 
         public ItemTask() { }
 
-        public ItemTask(string description, bool isDone, Item item)
+        public ItemTask(string description, bool isDone)
         {
             Description = description;
             IsDone = isDone;
-            Item = item;
         }
 
         public void SetTaskAsCompleted()

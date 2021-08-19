@@ -10,7 +10,6 @@ namespace WindowsApplicatie_NetteVersie.Models
     public class Item : INotifyPropertyChanged
     {
         public string Name { get; set; }
-        public Category Category { get; set; }
         public int Count { get; set; }
         public List<ItemTask> ItemTasks { get; set; }
 
@@ -18,11 +17,10 @@ namespace WindowsApplicatie_NetteVersie.Models
             ItemTasks = new List<ItemTask>();
         }
 
-        public Item(string name, Category category, int count)
+        public Item(string name, int count)
         {
             ItemTasks = new List<ItemTask>();
             Name = name;
-            Category = category;
             Count = count;
         }
 
