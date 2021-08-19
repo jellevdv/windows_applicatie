@@ -27,7 +27,12 @@
             <Button x:Name="GoToDetailScreenHoliday" Content="See details"  Click="GoToDetailScreenHoliday_Click" MinWidth="148" Padding="4,4,4,4" HorizontalAlignment="Right" Margin="0,0,72,24"/>
             <Button x:Name="AddHolidayBtn" Content="Add Holiday"  Click="AddHolidayBtn_Click" HorizontalAlignment="Right" Margin="0,0,72,0" MinWidth="148" Padding="4,4,4,4"/>
             <Button x:Name="RemoveHolidayBtn" Content="Remove Holiday" Command="{Binding RemoveHolidayCommand}" HorizontalAlignment="Right" Margin="0,24,72,0" MinWidth="148" Background="#33BDA8A8"/>
-
+            <StackPanel Height="214" Width="548" FocusVisualPrimaryBrush="#FFE4AFAF">
+                <TextBlock Text="{Binding SelectedItem.Name, ElementName=lvHolidays}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
+                <TextBlock  Text="{Binding SelectedItem.Destination, ElementName=lvHolidays}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
+                <TextBlock  Text="{Binding SelectedItem.Description, ElementName=lvHolidays}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
+                <TextBlock  Text="{Binding SelectedItem.DepartureDate.ToString, ElementName=lvHolidays}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
             <Popup x:Name="Popup">
                 <StackPanel Grid.Row="1" Margin="52,37,974,461" Padding="72,72,72,72" FocusVisualPrimaryBrush="#FFF7EBEB" FocusVisualSecondaryBrush="#99FFEAEA" BorderThickness="5,0,0,0" Background="#FFE0DEDE" >
                     <TextBlock  TextWrapping="Wrap" Text="Name of your holiday " Margin="0,0,0,8"/>

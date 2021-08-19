@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WindowsApplicatie_NetteVersie.Models
 {
-    public class Holiday
+    public class Holiday : INotifyPropertyChanged
     {
 
         public string Name { get; set; }
@@ -24,6 +25,6 @@ namespace WindowsApplicatie_NetteVersie.Models
             DepartureDate = departuredate;
         }
 
-
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -8,22 +8,29 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="1317,80,0,0" Text="25% packed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
 
-        <StackPanel Grid.Row="0">
-            <TextBlock Text="Restore Scroll Position Sample"
-               VerticalAlignment="Top"
-               Style="{ThemeResource TitleTextBlockStyle}"
-               Margin="10" />
-
-            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,0,0,0">
-                Use the back button above to navigate back to the main Restore Scroll Position Page. Once you navigate back, you should see that your scroll position has been maintained.
-            </TextBlock>
+        <StackPanel Margin="268,-5,268,585">
+            <TextBlock Text="Honeymoon (name)" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
+            <TextBlock Text="to" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
+            <TextBlock Text="Hawaii (destination)" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
+            <StackPanel Height="100" HorizontalAlignment="Center" Width="419">
+                <TextBlock Text="Name of Trip" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="Short description bla ba" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="24/08/2021" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
         </StackPanel>
+        
+        <StackPanel Margin="122,420,122,427">
+            <ScrollViewer Height="150" Background="#FFEEEEEE" Width="854"/>
+        </StackPanel>
+
+        <StackPanel Margin="128,642,116,205">
+            <ListView Height="150" Background="#FFEEEEEE" Width="854"/>
+        </StackPanel>
+
+
+
     </Grid>
 </Page>

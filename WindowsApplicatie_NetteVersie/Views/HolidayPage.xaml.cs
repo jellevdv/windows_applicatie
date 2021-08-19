@@ -14,7 +14,7 @@ namespace WindowsApplicatie_NetteVersie.Views
     /// </summary>
     public sealed partial class HolidayPage : Page
     {
-        private readonly INavigationService _navigationService;
+        //private readonly INavigationService _navigationService;
 
         public HolidayPage()
         {
