@@ -5,10 +5,20 @@
     xmlns:local="using:WindowsApplicatie_NetteVersie.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:WindowsApplicatie_NetteVersie.Models"
+    xmlns:vm="using:WindowsApplicatie_NetteVersie.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Test"></TextBlock>
+        <ListView ItemsSource="{x:Bind ViewModel.Holidays}" xmlns:m="using:WindowsApplicatie_NetteVersie.Models">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="m:Holiday">
+                    <Grid>
+                        <TextBlock Text="{x:Bind Destination}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

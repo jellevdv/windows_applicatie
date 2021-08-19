@@ -57,7 +57,7 @@ namespace WindowsApplicatie_NetteVersie
                         ContentFrame.Navigate(typeof(ItemPage));
                         break;
                     case "TestPage":
-                        ContentFrame.Navigate(typeof(TestPage));
+                        ContentFrame.Navigate(typeof(HolidayDetailPage));
                         break;
                 }
             }

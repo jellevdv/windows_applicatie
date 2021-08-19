@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Net.Http;
 using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
@@ -8,10 +9,11 @@ using Xamarin.Forms;
 
 namespace WindowsApplicatie_NetteVersie.ViewModels
 {
-    class HolidayListViewModel
+    public class HolidayListViewModel
     {
         public ICommand AddHolidayCommand => new Command(AddHoliday);
         public ICommand RemoveHolidayCommand => new Command(RemoveHoliday);
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public User _user { get; set; }
 
@@ -29,7 +31,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         {
             Holidays = new ObservableCollection<Holiday>
             {
-                new Holiday("Honeymoon", "Trip with wifey", "Hawaii", DateTime.Now),
+                new Holiday("Honeymoon", "Trip with waifu", "Hawaii", DateTime.Now),
                 new Holiday("Hiking Trip", "Trip with friends", "Scotland", DateTime.Now)
             };
 
@@ -50,7 +52,9 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public void AddHoliday()
         {
-            Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now));
+            //probleem hier is dat de name, descr... niet meegegeven worden 
+            var task = new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now);
+            Holidays.Add(task);
         }
 
         public void RemoveHoliday()

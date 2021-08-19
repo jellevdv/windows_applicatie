@@ -1,4 +1,8 @@
-﻿using Windows.UI.Xaml;
+
+
+using GalaSoft.MvvmLight.Views;
+using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
@@ -14,7 +18,11 @@ namespace WindowsApplicatie_NetteVersie.Views
     /// </summary>
     public sealed partial class HolidayPage : Page
     {
+
         HolidayListViewModel vm { get; set; }
+
+        //private readonly INavigationService _navigationService;
+
 
         public HolidayPage()
         {
@@ -35,6 +43,8 @@ namespace WindowsApplicatie_NetteVersie.Views
         private void GoToDetailScreenHoliday_Click(object sender, RoutedEventArgs e)
         {
 
+ //_navigationService.Navigate(typeof(ContentGridDetailPage), clickedItem.OrderID);
+           //  _navigationService.NavigateTo(ItemPage);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
