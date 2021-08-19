@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Net.Http;
 using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
@@ -12,6 +13,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
     {
         public ICommand AddHolidayCommand => new Command(AddHoliday);
         public ICommand RemoveHolidayCommand => new Command(RemoveHoliday);
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<Holiday> Holidays { get; set; }
 
@@ -50,6 +52,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public void AddHoliday()
         {
+            //probleem hier is dat de name, descr... niet meegegeven worden 
             Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now));
         }
 

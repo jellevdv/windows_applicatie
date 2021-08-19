@@ -26,5 +26,6 @@ namespace WindowsApplicatie_NetteVersie.Models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
     }
 }
