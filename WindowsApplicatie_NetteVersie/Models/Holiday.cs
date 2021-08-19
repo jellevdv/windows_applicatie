@@ -8,7 +8,6 @@ namespace WindowsApplicatie_NetteVersie.Models
 {
     public class Holiday
     {
-
         public string Name { get; set; }
         public string Description { get; set; }
         public string Destination { get; set; }
@@ -23,7 +22,5 @@ namespace WindowsApplicatie_NetteVersie.Models
             Destination = destination;
             DepartureDate = departuredate;
         }
-
-
     }
 }

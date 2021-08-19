@@ -18,6 +18,8 @@
                 <NavigationViewItem Icon="Favorite" Content="Items" Tag="ItemPage"/>
 
                 <NavigationViewItem Icon="Admin" Content="TestPage" Tag="TestPage"/>
+                
+                <NavigationViewItem Icon="Admin" Content="Login" Tag="LoginPage"/>
             </NavigationView.MenuItems>
 
             <ScrollViewer>

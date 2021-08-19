@@ -25,6 +25,14 @@ namespace WindowsApplicatie_NetteVersie.Views
         public AddHolidayPage()
         {
             this.InitializeComponent();
+
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
     }
 }

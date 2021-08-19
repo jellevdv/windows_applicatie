@@ -19,7 +19,7 @@
             <TextBlock Text="Restore Scroll Position Sample"
                VerticalAlignment="Top"
                Style="{ThemeResource TitleTextBlockStyle}"
-               Margin="10" />
+               Margin="10" FontFamily="Segoe UI" />
 
             <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,0,0,0">
                 Use the back button above to navigate back to the main Restore Scroll Position Page. Once you navigate back, you should see that your scroll position has been maintained.
