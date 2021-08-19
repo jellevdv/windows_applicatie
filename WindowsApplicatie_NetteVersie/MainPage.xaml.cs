@@ -30,7 +30,7 @@ namespace WindowsApplicatie_NetteVersie
 
         private void NavigationView_Loaded(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(HomeScreen));
+            ContentFrame.Navigate(typeof(LoginPage));
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -44,6 +44,9 @@ namespace WindowsApplicatie_NetteVersie
                 NavigationViewItem item = args.SelectedItem as NavigationViewItem;
                 switch (item.Tag.ToString())
                 {
+                    case "LoginPage":
+                        ContentFrame.Navigate(typeof(LoginPage));
+                        break;
                     case "HolidayPage":
                         ContentFrame.Navigate(typeof(HolidayPage));
                         break;

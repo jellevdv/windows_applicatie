@@ -15,6 +15,8 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         public ICommand RemoveHolidayCommand => new Command(RemoveHoliday);
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public User _user { get; set; }
+
         public ObservableCollection<Holiday> Holidays { get; set; }
 
         public Holiday SelectedHoliday { get; set; }
@@ -35,8 +37,6 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
             //HaalDataOp();
         }
-
-
 
         private async void HaalDataOp()
         {

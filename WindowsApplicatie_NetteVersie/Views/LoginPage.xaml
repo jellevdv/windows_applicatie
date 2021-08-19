@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="WindowsApplicatie_NetteVersie.Views.LoginPage"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsApplicatie_NetteVersie.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:WindowsApplicatie_NetteVersie.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:AuthViewModel/>
+    </Page.DataContext>
+
+    <Page.Content>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,50">
+
+            <TextBlock Margin="0,0,0,0" Text="Login" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64px" />
+            <TextBlock Margin="0,25,0,0"  TextWrapping="Wrap" Text="Please login to use the application. " HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+            <TextBlock Margin="0,0,0,0"  TextWrapping="Wrap" Text="If you don't have a login yet, please register first." HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+
+            <TextBlock  Margin="0,25,0,0" Text="Email Address" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" />
+            <TextBox x:Name="Email" Margin="0,5,0,0" PlaceholderText="example@email.com" Text="{Binding Path=Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Padding="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI"/>
+            <TextBlock x:Name="EmailError" Margin="0,5,0,0" Text="{Binding Path=EmailError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" Foreground="Red" FontStyle="Italic"  />
+
+            <TextBlock  Margin="0,10,0,0" Text="Password" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" />
+            <PasswordBox x:Name="Passw" Margin="0,5,0,0" PlaceholderText="********" Password="{Binding Path=Passw, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="40" Padding="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300"/>
+            <TextBlock x:Name="PasswError" Margin="0,5,0,0" Text="{Binding Path=PasswError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" Foreground="Red" FontStyle="Italic"  />
+
+            <Button Content="Login" Command="{Binding TryLogin}" HorizontalAlignment="Center" Height="40" Margin="0,20,0,0" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI"  />
+            <Button FontStyle="Italic" Content="New here? Register..." Click="Button_Click" HorizontalAlignment="Center" Height="40"  Margin="0,20,0,0" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI" Background="Transparent" Foreground="Gray" >
+                <Button.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary x:Key="Dark">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent"/>
+                            </ResourceDictionary>
+                        </ResourceDictionary.ThemeDictionaries>
+                    </ResourceDictionary>
+                </Button.Resources>
+            </Button>
+
+        </StackPanel>
+        
+        
+    </Page.Content>
+    
+    
+
+</Page>
+    
+    

@@ -30,6 +30,7 @@
                 <Button x:Name="RemoveHolidayBtn" Content="Remove Holiday" Command="{Binding RemoveHolidayCommand}" HorizontalAlignment="Right" Margin="0,24,72,0" MinWidth="148" Background="#33BDA8A8"/>
             </StackPanel>
 
+
             <StackPanel FocusVisualPrimaryBrush="#FFE4AFAF" Margin="266,426,484,222" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <CompositeTransform Rotation="0"/>
