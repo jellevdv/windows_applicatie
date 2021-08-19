@@ -24,7 +24,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button x:Name="GoToDetailScreenHoliday" Content="See details"  Click="GoToDetailScreenHoliday_Click" MinWidth="148" Padding="4,4,4,4" HorizontalAlignment="Right" Margin="0,0,72,24"/>
+            <Button x:Name="GoToDetailScreenHoliday" Content="Start packing!"  Click="GoToDetailScreenHoliday_Click" MinWidth="148" Padding="4,4,4,4" HorizontalAlignment="Right" Margin="0,0,72,24"/>
             <Button x:Name="AddHolidayBtn" Content="Add Holiday"  Click="AddHolidayBtn_Click" HorizontalAlignment="Right" Margin="0,0,72,0" MinWidth="148" Padding="4,4,4,4"/>
             <Button x:Name="RemoveHolidayBtn" Content="Remove Holiday" Command="{Binding RemoveHolidayCommand}" HorizontalAlignment="Right" Margin="0,24,72,0" MinWidth="148" Background="#33BDA8A8"/>
             <StackPanel Height="214" Width="548" FocusVisualPrimaryBrush="#FFE4AFAF">
