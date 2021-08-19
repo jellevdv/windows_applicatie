@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace WindowsApplicatie_NetteVersie.ViewModels
 {
-    class HolidayListViewModel
+    public class HolidayListViewModel
     {
         public ICommand AddHolidayCommand => new Command(AddHoliday);
         public ICommand RemoveHolidayCommand => new Command(RemoveHoliday);

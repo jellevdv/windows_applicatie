@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsApplicatie_NetteVersie.ViewModels
 {
-    class CategoryListViewModel
+    public class CategoryListViewModel
     {
     }
 }
