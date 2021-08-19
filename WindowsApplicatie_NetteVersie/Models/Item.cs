@@ -1,19 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsApplicatie_NetteVersie.Models
 {
     public class Item : INotifyPropertyChanged
     {
-        public string Name { get; set; }
-        public int Count { get; set; }
-        public List<ItemTask> ItemTasks { get; set; }
+        private string _name;
+        private int _count;
+        private List<ItemTask> _itemTasks;
 
-        public Item() {
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+            set
+            {
+                _count = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Count"));
+            }
+        }
+
+        public List<ItemTask> ItemTasks
+        {
+            get
+            {
+                return _itemTasks;
+            }
+            set
+            {
+                _itemTasks = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemTasks"));
+            }
+        }
+
+        public Item()
+        {
             ItemTasks = new List<ItemTask>();
         }
 

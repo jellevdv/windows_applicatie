@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
+using Xamarin.Forms;
 
 namespace WindowsApplicatie_NetteVersie.ViewModels
 {
@@ -23,6 +25,14 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         //selected item from listview
         public Item SelectedItem { get; set; }
+
+
+
+        public ICommand HandleCheckCommand => new Command(HandleCheck);
+
+
+        public ICommand HandleUncheckedCommand => new Command(HandleUnchecked);
+
 
 
         public HolidayDetailViewModel()
@@ -50,9 +60,17 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
 
 
-        private async void HaalDataOp()
+
+        private void HandleCheck(object obj)
         {
+            Console.WriteLine("Checked");
         }
+        private void HandleUnchecked(object obj)
+        {
+            Console.WriteLine("Unchecked");
+        }
+
+
 
         public void AddCategoryToHoliday(Category category)
         {

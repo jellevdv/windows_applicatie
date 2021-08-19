@@ -9,8 +9,29 @@ namespace WindowsApplicatie_NetteVersie.Models
 {
     public class ItemTask : INotifyPropertyChanged
     {
-        public string Description { get; set; }
-        public bool IsDone { get; set; }
+        private string _description;
+        private bool _isDone;
+
+
+        public string Description
+        {
+            get { return _description; }
+            set
+            {
+                _description = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Description"));
+            }
+        }
+
+        public bool IsDone
+        {
+            get { return _isDone; }
+            set
+            {
+                _isDone = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsDone"));
+            }
+        }
 
         public ItemTask() { }
 

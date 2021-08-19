@@ -55,6 +55,7 @@
                     <StackPanel Orientation="Horizontal" Margin="2">
                         <TextBlock Text="{Binding Description}" Margin="8"/>
                         <TextBlock Text="{Binding IsDone}" Margin="8"/>
+                   <!--     <CheckBox Content="{Binding IsDone}" x:Name="cbItem" Checked="{Binding HandleCheckCommand}" Unchecked="{Binding HandleUncheckedCommand}" /> -->
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
