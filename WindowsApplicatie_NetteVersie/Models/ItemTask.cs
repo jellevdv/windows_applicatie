@@ -22,6 +22,15 @@ namespace WindowsApplicatie_NetteVersie.Models
             Item = item;
         }
 
+        public void SetTaskAsCompleted()
+        {
+            IsDone = true;
+        }
+        public void SetTaskAsUnCompleted()
+        {
+            IsDone = false;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
     }

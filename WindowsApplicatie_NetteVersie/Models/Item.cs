@@ -18,12 +18,16 @@ namespace WindowsApplicatie_NetteVersie.Models
             ItemTasks = new List<ItemTask>();
         }
 
-        public Item(string name, Category category, int count, ItemTask itemTask)
+        public Item(string name, Category category, int count)
         {
             ItemTasks = new List<ItemTask>();
             Name = name;
             Category = category;
             Count = count;
+        }
+
+        public void AddTaskToItem(ItemTask itemTask)
+        {
             ItemTasks.Add(itemTask);
         }
 

@@ -17,11 +17,15 @@ namespace WindowsApplicatie_NetteVersie.Models
             Items = new List<Item>();
         }
 
-        public Category(string name, string description, Item item)
+        public Category(string name, string description)
         {
             Items = new List<Item>();
             Name = name;
             Description = description;
+        }
+
+        public void AddItemToCategory(Item item)
+        {
             Items.Add(item);
         }
 
