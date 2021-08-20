@@ -46,6 +46,9 @@ namespace WindowsApplicatie_NetteVersie
                 NavigationViewItem item = args.SelectedItem as NavigationViewItem;
                 switch (item.Tag.ToString())
                 {
+                    case "HomePage":
+                        ContentFrame.Navigate(typeof(HomeScreen));
+                        break;
                     case "LoginPage":
                         ContentFrame.Navigate(typeof(LoginPage));
                         break;

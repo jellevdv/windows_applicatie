@@ -26,5 +26,19 @@ namespace WindowsApplicatie_NetteVersie.Views
         {
             this.InitializeComponent();
         }
+
+        private void HolidayBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO go to page instead of replacing content
+            HolidayPage mynewPage = new HolidayPage();
+            this.Content = mynewPage;
+        }
+
+        private void CategoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO go to page instead of replacing content
+            CategoryPage mynewPage = new CategoryPage(); 
+            this.Content = mynewPage;
+        }
     }
 }

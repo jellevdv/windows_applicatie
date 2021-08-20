@@ -11,13 +11,13 @@
     <Grid>
         <NavigationView x:Name="navView" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged">
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Holidays" Tag="HolidayPage"/>
+                <NavigationViewItem Icon="Home" Content="Home" Tag="HomePage"/>
 
-                <NavigationViewItem Icon="Library" Content="Categories" Tag="CategoryPage"/>
+                <NavigationViewItem Icon="Library" Content="Holidays" Tag="HolidayPage"/>
 
-                <NavigationViewItem Icon="Favorite" Content="Items" Tag="ItemPage"/>
+                <NavigationViewItem Icon="Favorite" Content="Categories" Tag="CategoryPage"/>
 
-                <NavigationViewItem Icon="Admin" Content="TestPage" Tag="TestPage"/>
+                <NavigationViewItem Icon="Directions" Content="Holiday" Tag="TestPage"/>
                 
                 <NavigationViewItem Icon="Admin" Content="Login" Tag="LoginPage"/>
             </NavigationView.MenuItems>
