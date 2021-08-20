@@ -38,6 +38,8 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             //};
 
             Holidays = new ObservableCollection<Holiday>();
+            _user = AuthService.AppUser;
+            RefreshData();
 
             //HaalDataOp();
         }
@@ -67,6 +69,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         public void AddHoliday()
         {
             //TODO de datum uit de calenderpicker halen!
+
             Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now));
         }
 

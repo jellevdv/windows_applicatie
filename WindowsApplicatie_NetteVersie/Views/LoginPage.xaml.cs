@@ -27,7 +27,7 @@ namespace WindowsApplicatie_NetteVersie.Views
 
             if (u.Token != null)
             {
-                Frame.Navigate(typeof(HolidayPage), u);
+                Frame.Navigate(typeof(HolidayPage));
             }
         }
 

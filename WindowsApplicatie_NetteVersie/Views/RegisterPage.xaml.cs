@@ -46,7 +46,7 @@ namespace WindowsApplicatie_NetteVersie.Views
             }
             else if (u.Token != null)
             {
-                Frame.Navigate(typeof(HolidayPage), u);
+                Frame.Navigate(typeof(HolidayPage));
             }
             else
             {

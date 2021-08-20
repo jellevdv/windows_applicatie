@@ -19,7 +19,6 @@
 
                 <NavigationViewItem Icon="Directions" Content="Holiday" Tag="TestPage"/>
                 
-                <NavigationViewItem Icon="Admin" Content="Login" Tag="LoginPage"/>
             </NavigationView.MenuItems>
 
             <ScrollViewer>

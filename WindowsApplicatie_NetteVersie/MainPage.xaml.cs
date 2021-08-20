@@ -27,7 +27,25 @@ namespace WindowsApplicatie_NetteVersie
 
         public MainPage()
         {
+            _user = AuthService.AppUser;
+
             this.InitializeComponent();
+            //this.navView.IsPaneVisible = false;
+            this.navView.IsPaneOpen = false;
+            //this.navView.IsPaneToggleButtonVisible = false;
+
+            //if (_user != null)
+            //{
+            //    if(_user.Token != null)
+            DisplayNav();
+            //}
+        }
+
+        private void DisplayNav()
+        {
+            this.navView.IsPaneVisible = true;
+            this.navView.IsPaneOpen = true;
+            this.navView.IsPaneToggleButtonVisible = true;
         }
 
         private void NavigationView_Loaded(object sender, RoutedEventArgs e)
@@ -44,26 +62,31 @@ namespace WindowsApplicatie_NetteVersie
             else
             {
                 NavigationViewItem item = args.SelectedItem as NavigationViewItem;
-                switch (item.Tag.ToString())
+                _user = AuthService.AppUser;
+                if (_user != null)
                 {
-                    case "HomePage":
-                        ContentFrame.Navigate(typeof(HomeScreen));
-                        break;
-                    case "LoginPage":
-                        ContentFrame.Navigate(typeof(LoginPage));
-                        break;
-                    case "HolidayPage":
-                        ContentFrame.Navigate(typeof(HolidayPage), AuthService.AppUser);
-                        break;
-                    case "CategoryPage":
-                        ContentFrame.Navigate(typeof(CategoryPage));
-                        break;
-                    case "ItemPage":
-                        ContentFrame.Navigate(typeof(ItemPage));
-                        break;
-                    case "TestPage":
-                        ContentFrame.Navigate(typeof(HolidayDetailPage));
-                        break;
+                    switch (item.Tag.ToString())
+                    {
+                        case "HomePage":
+                            ContentFrame.Navigate(typeof(HomeScreen));
+                            DisplayNav();
+                            break;
+                        case "HolidayPage":
+                            ContentFrame.Navigate(typeof(HolidayPage));
+                            DisplayNav();
+                            break;
+                        case "CategoryPage":
+                            ContentFrame.Navigate(typeof(CategoryPage));
+                            DisplayNav();
+                            break;
+                        case "ItemPage":
+                            ContentFrame.Navigate(typeof(ItemPage));
+                            DisplayNav();
+                            break;
+                        case "TestPage":
+                            ContentFrame.Navigate(typeof(HolidayDetailPage));
+                            break;
+                    }
                 }
             }
         }

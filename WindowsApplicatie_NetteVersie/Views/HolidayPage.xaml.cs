@@ -43,14 +43,5 @@ namespace WindowsApplicatie_NetteVersie.Views
             //  _navigationService.NavigateTo(ItemPage);
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            User u = (User)e.Parameter;
-            if (u != null)
-            {
-                vm._user = u;
-            }
-        }
-
     }
 }
