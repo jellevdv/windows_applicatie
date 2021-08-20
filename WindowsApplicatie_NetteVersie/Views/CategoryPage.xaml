@@ -30,7 +30,9 @@
 
         <StackPanel Background="White" Margin="0,474,0,208" HorizontalAlignment="Center">
             <TextBlock Text="Or add a new one" FontSize="24" Width="238" HorizontalAlignment="Center" Margin="0,0,0,24"/>
-            <Button x:Name="AddCategoryButton" Content="Add Category"  Click="AddCategoryButton_Click" MinWidth="148" Padding="4,4,4,4" Background="#3336D426" FocusVisualPrimaryBrush="#FF90DAB5" Width="251" FontSize="16" FontWeight="Normal"/>
+            <TextBox  x:Name="CategoryName"  PlaceholderText="Category name" Text="{Binding Path=CategoryName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="0,0,0,5" HorizontalAlignment="Stretch"/>
+            <TextBox x:Name="CategoryDescription" PlaceholderText="Category description"  Text="{Binding Path=CategoryDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap"/>
+            <Button x:Name="AddCategoryButton" Content="Add Category"  Command="{Binding AddCategoryCommand}" MinWidth="148" Padding="4,4,4,4" Background="#3336D426" FocusVisualPrimaryBrush="#FF90DAB5" Width="251" FontSize="16" FontWeight="Normal" Margin="0,8,0,0"/>
         </StackPanel>
 
     </Grid>
