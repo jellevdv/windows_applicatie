@@ -2,10 +2,8 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.Views;
-using Xamarin.Forms;
 
 namespace WindowsApplicatie_NetteVersie.ViewModels
 {
@@ -15,17 +13,6 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         private string _emailError;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public ICommand TryRegister => new Command(Register);
-
-        //public ObservableCollection<Holiday> Holidays { get; set; }
-
-        //public Holiday SelectedHoliday { get; set; }
-
-        //public string HolidayName { get; set; }
-        //public string HolidayDestination { get; set; }
-        //public string HolidayDescription { get; set; }
-        //public DateTime HolidayDepartureDate { get; set; }
 
         public string Email { get; set; }
         public string EmailError
@@ -56,6 +43,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         }
 
         public string AppError { get; set; }
+
+        public string PasswConfirm { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Phone { get; set; }
 
         public AuthViewModel()
         {
@@ -92,9 +84,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         }
 
 
-        public void Register()
+        public async Task<(User, CustomError)> Register(DateTimeOffset date)
         {
+            (User u, CustomError c) = await AuthService.Register(Email, FirstName, LastName, Phone, Passw, PasswConfirm, date);            
 
+            return (u, c);
         }
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)

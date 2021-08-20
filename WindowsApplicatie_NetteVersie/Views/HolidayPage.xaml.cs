@@ -50,9 +50,6 @@ namespace WindowsApplicatie_NetteVersie.Views
             {
                 vm._user = u;
             }
-
-            System.Diagnostics.Debug.WriteLine(u.ID);
-            System.Diagnostics.Debug.WriteLine(u.Token);
         }
 
     }
