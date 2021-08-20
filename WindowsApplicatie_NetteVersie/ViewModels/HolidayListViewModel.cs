@@ -13,6 +13,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
     {
         public ICommand AddHolidayCommand => new Command(AddHoliday);
         public ICommand RemoveHolidayCommand => new Command(RemoveHoliday);
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public User _user { get; set; }
@@ -52,15 +53,16 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public void AddHoliday()
         {
-            //probleem hier is dat de name, descr... niet meegegeven worden 
-            var task = new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now);
-            Holidays.Add(task);
+            //TODO de datum uit de calenderpicker halen!
+            Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now));
         }
 
         public void RemoveHoliday()
         {
             Holidays.Remove(SelectedHoliday);
         }
+
+
 
     }
 }
