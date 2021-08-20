@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace WindowsApplicatie_NetteVersie.Models
 {
@@ -17,7 +18,7 @@ namespace WindowsApplicatie_NetteVersie.Models
         //public Address[] Addresses { get; set; }
         //public Medical[] Medicals { get; set; }
         //public Emergency[] Emergencies { get; set; }
-        //public Holiday[] Holidays { get; set; }
+        public List<Holiday> Holidays { get; set; }
 
         public User() { }
 
@@ -51,6 +52,17 @@ namespace WindowsApplicatie_NetteVersie.Models
                 u.Country = (string)v["country"];
                 u.Nationality = (string)v["nationality"];
                 u.DateOfBirth = (DateTime)v["dateOfBirth"];
+
+                u.Holidays = new List<Holiday>();
+
+                foreach (var d in v["holidays"].Children())
+                {
+                    Holiday h = (Holiday)d;
+                    u.Holidays.Add(h);
+                }
+
+                System.Diagnostics.Debug.WriteLine(u.Holidays.Count);
+
             }
             catch
             {

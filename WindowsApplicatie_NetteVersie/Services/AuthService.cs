@@ -44,20 +44,23 @@ namespace WindowsApplicatie_NetteVersie
                     }
                     catch
                     {
-                        if (responseContent.ToLower().Contains("password"))
+                        if (responseContent.ToLower().Contains("[error]"))
                         {
-                            c.Scope = "password";
-                            c.Message = responseContent;
-                        }
-                        else if (responseContent.ToLower().Contains("email"))
-                        {
-                            c.Scope = "email";
-                            c.Message = responseContent;
-                        }
-                        else
-                        {
-                            c.Scope = "app";
-                            c.Message = responseContent;
+                            if (responseContent.ToLower().Contains("password"))
+                            {
+                                c.Scope = "password";
+                                c.Message = responseContent;
+                            }
+                            else if (responseContent.ToLower().Contains("email"))
+                            {
+                                c.Scope = "email";
+                                c.Message = responseContent;
+                            }
+                            else
+                            {
+                                c.Scope = "app";
+                                c.Message = responseContent;
+                            }
                         }
                     }
                 }
@@ -85,7 +88,7 @@ namespace WindowsApplicatie_NetteVersie
                     email = email,
                     password = password,
                     firstName = firstn,
-                    lastName=lastn,
+                    lastName = lastn,
                     phone = phone,
                     passwordConfirmation = passwordC,
                     dateOfBirth = date
@@ -103,24 +106,29 @@ namespace WindowsApplicatie_NetteVersie
                     try
                     {
                         u = (User)JObject.Parse(responseContent);
+
+                        //JsonConvert.DeserializeObject<User>(json);
                         AppUser = u;
                     }
                     catch
                     {
-                        if (responseContent.ToLower().Contains("password"))
+                        if (responseContent.ToLower().Contains("[error]"))
                         {
-                            c.Scope = "password";
-                            c.Message = responseContent;
-                        }
-                        else if (responseContent.ToLower().Contains("email"))
-                        {
-                            c.Scope = "email";
-                            c.Message = responseContent;
-                        }
-                        else
-                        {
-                            c.Scope = "app";
-                            c.Message = responseContent;
+                            if (responseContent.ToLower().Contains("password"))
+                            {
+                                c.Scope = "password";
+                                c.Message = responseContent;
+                            }
+                            else if (responseContent.ToLower().Contains("email"))
+                            {
+                                c.Scope = "email";
+                                c.Message = responseContent;
+                            }
+                            else
+                            {
+                                c.Scope = "app";
+                                c.Message = responseContent;
+                            }
                         }
                     }
                 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
 using Xamarin.Forms;
@@ -30,13 +31,25 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public HolidayListViewModel()
         {
-            Holidays = new ObservableCollection<Holiday>
-            {
-                new Holiday("Honeymoon", "Trip with waifu", "Hawaii", DateTime.Now),
-                new Holiday("Hiking Trip", "Trip with friends", "Scotland", DateTime.Now)
-            };
+            //Holidays = new ObservableCollection<Holiday>
+            //{
+            //    new Holiday("Honeymoon", "Trip with waifu", "Hawaii", DateTime.Now),
+            //    new Holiday("Hiking Trip", "Trip with friends", "Scotland", DateTime.Now)
+            //};
+
+            Holidays = new ObservableCollection<Holiday>();
 
             //HaalDataOp();
+        }
+
+        private void RefreshData()
+        {
+            Holidays = new ObservableCollection<Holiday>();
+            foreach (var h in _user.Holidays)
+            {
+                Holidays.Add(h);
+            }
+            OnPropertyChanged("Holidays");
         }
 
         private async void HaalDataOp()
@@ -62,7 +75,10 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             Holidays.Remove(SelectedHoliday);
         }
 
-
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }

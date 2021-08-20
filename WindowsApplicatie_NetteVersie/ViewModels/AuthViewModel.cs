@@ -56,7 +56,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         public async Task<User> Login()
         {
             (User u, CustomError c) = await AuthService.Login(Email, Passw);
-            if (c.Message != null)
+            if (c.Message != null )
             {
 
                 EmailError = "";
@@ -86,7 +86,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public async Task<(User, CustomError)> Register(DateTimeOffset date)
         {
-            (User u, CustomError c) = await AuthService.Register(Email, FirstName, LastName, Phone, Passw, PasswConfirm, date);            
+            (User u, CustomError c) = await AuthService.Register(Email, FirstName, LastName, Phone, Passw, PasswConfirm, date);
 
             return (u, c);
         }

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 
 namespace WindowsApplicatie_NetteVersie.Models
 {
     public class Holiday : INotifyPropertyChanged
     {
+        public int ID { get; set; }
         private string _name;
         private string _description;
         private string _destination;
@@ -68,6 +69,28 @@ namespace WindowsApplicatie_NetteVersie.Models
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Categories"));
             }
         }
+
+        public static explicit operator Holiday(JToken v)
+        {
+            Holiday u = new Holiday();
+
+            try
+            {
+                u.Name = (string)v["_name"];
+                u.Description = (string)v["_description"];
+                u.Destination = (string)v["_destination"];
+                u.DepartureDate = (DateTime)v["_departuredate"];
+                //   u.Categories = (Category)v["categories"];
+            }
+            catch
+            {
+                System.Diagnostics.Debug.WriteLine("Something went wrong mapping the holiday in user...!");
+                throw new Exception();
+            }
+
+            return u;
+        }
+
         public Holiday()
         {
             Categories = new List<Category>();

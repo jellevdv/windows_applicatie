@@ -15,7 +15,7 @@
 
     <Page.Content>
         <Grid>
-            <ListView x:Name="lvHolidays" ItemsSource="{Binding Holidays}" SelectedItem="{Binding SelectedHoliday}"  Background="#FFEEEEEE" Width="968" Margin="266,146,266,675" MaxHeight="180">
+            <ListView x:Name="lvHolidays" ItemsSource="{Binding Path=Holidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedHoliday}"  Background="#FFEEEEEE" Width="968" Margin="266,146,266,675" MaxHeight="180">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
