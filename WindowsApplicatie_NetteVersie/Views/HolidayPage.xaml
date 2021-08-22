@@ -49,9 +49,10 @@
                     <TextBlock  TextWrapping="Wrap" Text="Short description " Margin="0,0,0,8"/>
                     <TextBox x:Name="HolidayDescription" Text="{Binding Path=HolidayDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="0,0,0,16" />
                     <TextBlock  TextWrapping="Wrap" Text="DepartureDate: " Margin="0,0,0,8"/>
-                    <CalendarDatePicker x:Name="HolidayDepartureDate"  VerticalAlignment="Top"/>
+                    <CalendarDatePicker x:Name="HolidayDepartureDate" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Margin="0,0,0,8"/>
+                    <TimePicker x:Name="DepartureTime" HorizontalAlignment="Stretch" />
                     <StackPanel Height="88" BorderThickness="0,0,0,0" Margin="0,24,0,0" HorizontalAlignment="Left" Width="228" Orientation="Horizontal" VerticalAlignment="Center">
-                        <Button Content="Enter" Command="{Binding AddHolidayCommand}" Margin="0,0,16,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <Button Content="Enter" Click="AddHoliday_Button" Margin="0,0,16,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Button Content="Cancel"  Click="ClosePopupClicked" VerticalAlignment="Top" Background="#33C3B2B2"/>
                     </StackPanel>
                 </StackPanel>
