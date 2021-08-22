@@ -30,19 +30,21 @@ namespace WindowsApplicatie_NetteVersie
             _user = AuthService.AppUser;
 
             this.InitializeComponent();
-            //this.navView.IsPaneVisible = false;
+            this.navView.IsPaneVisible = false;
             this.navView.IsPaneOpen = false;
-            //this.navView.IsPaneToggleButtonVisible = false;
+            this.navView.IsPaneToggleButtonVisible = false;
+            this.navView.PaneDisplayMode = NavigationViewPaneDisplayMode.LeftMinimal;
 
-            //if (_user != null)
-            //{
-            //    if(_user.Token != null)
-            DisplayNav();
-            //}
+            if (_user != null)
+            {
+                if (_user.Token != null)
+                    DisplayNav();
+            }
         }
 
-        private void DisplayNav()
+        public void DisplayNav()
         {
+            this.navView.PaneDisplayMode = NavigationViewPaneDisplayMode.Left;
             this.navView.IsPaneVisible = true;
             this.navView.IsPaneOpen = true;
             this.navView.IsPaneToggleButtonVisible = true;

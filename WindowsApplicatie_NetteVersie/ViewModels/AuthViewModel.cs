@@ -80,6 +80,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
                         break;
                 }
             }
+
             return u;
         }
 

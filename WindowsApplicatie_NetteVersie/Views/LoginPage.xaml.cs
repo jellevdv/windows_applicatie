@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.ViewModels;
@@ -24,6 +25,10 @@ namespace WindowsApplicatie_NetteVersie.Views
 
             User u = await vm.Login();
             System.Diagnostics.Debug.WriteLine(u.ID);
+
+       
+            MainPage mainPage = (Window.Current.Content as Frame).Content as MainPage;
+            mainPage.DisplayNav();
 
             if (u.Token != null)
             {
