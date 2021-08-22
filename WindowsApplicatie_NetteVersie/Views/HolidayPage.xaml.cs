@@ -1,8 +1,7 @@
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Navigation;
-using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -43,5 +42,20 @@ namespace WindowsApplicatie_NetteVersie.Views
             //  _navigationService.NavigateTo(ItemPage);
         }
 
+        private void AddHoliday_Button(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(HolidayDepartureDate.Date.Value.DateTime.ToString());
+            System.Diagnostics.Debug.WriteLine(DepartureTime.Time.ToString());
+
+            var datetime = HolidayDepartureDate.Date.Value.DateTime.ToString().Split(" ")[0] + " "+DepartureTime.Time.ToString();
+
+            System.Diagnostics.Debug.WriteLine(datetime);
+
+            DateTime dt = DateTime.Parse(datetime);
+
+            System.Diagnostics.Debug.WriteLine(dt.Date.ToString());
+
+            vm.AddHoliday(dt);
+        }
     }
 }

@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Models\CustomError.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Services\HolidayService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

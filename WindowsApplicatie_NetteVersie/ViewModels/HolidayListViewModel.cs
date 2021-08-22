@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 using WindowsApplicatie_NetteVersie.Models;
 using Xamarin.Forms;
 
@@ -12,14 +11,26 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 {
     public class HolidayListViewModel
     {
-        public ICommand AddHolidayCommand => new Command(AddHoliday);
         public ICommand RemoveHolidayCommand => new Command(RemoveHoliday);
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public User _user { get; set; }
 
-        public ObservableCollection<Holiday> Holidays { get; set; }
+        private ObservableCollection<Holiday> _holidays { get; set; }
+
+        public ObservableCollection<Holiday> Holidays
+        {
+            get
+            {
+                return _holidays;
+            }
+            set
+            {
+                _holidays = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         public Holiday SelectedHoliday { get; set; }
 
@@ -38,7 +49,6 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             //};
 
             Holidays = new ObservableCollection<Holiday>();
-            _user = AuthService.AppUser;
             RefreshData();
 
             //HaalDataOp();
@@ -46,6 +56,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         private void RefreshData()
         {
+            _user = AuthService.AppUser;
             Holidays = new ObservableCollection<Holiday>();
             foreach (var h in _user.Holidays)
             {
@@ -54,23 +65,29 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             OnPropertyChanged("Holidays");
         }
 
-        private async void HaalDataOp()
-        {
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("https://localhost:44357/api/Holidays")); //string naar backend
-            var lst = JsonConvert.DeserializeObject<ObservableCollection<Holiday>>(json);
-            //   this.Movies = lst;
-            foreach (Holiday h in lst)
-            {
-                this.Holidays.Add(h);
-            }
-        }
+        //private async void HaalDataOp()
+        //{
+        //    HttpClient client = new HttpClient();
+        //    var json = await client.GetStringAsync(new Uri("https://localhost:44357/api/Holidays")); //string naar backend
+        //    var lst = JsonConvert.DeserializeObject<ObservableCollection<Holiday>>(json);
+        //    //   this.Movies = lst;
+        //    foreach (Holiday h in lst)
+        //    {
+        //        this.Holidays.Add(h);
+        //    }
+        //}
 
-        public void AddHoliday()
+        public async void AddHoliday(DateTime holidayDepartureDate)
         {
             //TODO de datum uit de calenderpicker halen!
 
-            Holidays.Add(new Holiday(HolidayName, HolidayDescription, HolidayDestination, DateTime.Now));
+            Holiday holiday = new Holiday(HolidayName, HolidayDescription, HolidayDestination, holidayDepartureDate);
+            (Holiday h, CustomError c) = await HolidayService.AddHoliday(holiday);
+            if (h.ID >= 0 && c.Message == null)
+            {
+                Holidays.Add(h);
+            }
+
         }
 
         public void RemoveHoliday()

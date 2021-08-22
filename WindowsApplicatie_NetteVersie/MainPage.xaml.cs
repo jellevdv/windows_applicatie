@@ -67,23 +67,20 @@ namespace WindowsApplicatie_NetteVersie
                 _user = AuthService.AppUser;
                 if (_user != null)
                 {
+                    DisplayNav();
                     switch (item.Tag.ToString())
                     {
                         case "HomePage":
                             ContentFrame.Navigate(typeof(HomeScreen));
-                            DisplayNav();
                             break;
                         case "HolidayPage":
                             ContentFrame.Navigate(typeof(HolidayPage));
-                            DisplayNav();
                             break;
                         case "CategoryPage":
                             ContentFrame.Navigate(typeof(CategoryPage));
-                            DisplayNav();
                             break;
                         case "ItemPage":
                             ContentFrame.Navigate(typeof(ItemPage));
-                            DisplayNav();
                             break;
                         case "TestPage":
                             ContentFrame.Navigate(typeof(HolidayDetailPage));
