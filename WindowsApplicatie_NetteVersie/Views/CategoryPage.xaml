@@ -14,6 +14,59 @@
     </Page.DataContext>
 
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Desktop">
+                    <VisualState.Setters>
+                        <Setter Target="stackPanel.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0,454,0,228</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="stackPanel.(FrameworkElement.HorizontalAlignment)">
+                            <Setter.Value>
+                                <HorizontalAlignment>Center</HorizontalAlignment>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Tablet">
+                    <VisualState.Setters>
+                        <Setter Target="stackPanel.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>72,408,0,274</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="stackPanel.(FrameworkElement.HorizontalAlignment)">
+                            <Setter.Value>
+                                <HorizontalAlignment>Left</HorizontalAlignment>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="textBlock.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>72,389,0,0</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="textBlock.(FrameworkElement.VerticalAlignment)">
+                            <Setter.Value>
+                                <VerticalAlignment>Top</VerticalAlignment>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="textBlock.(FrameworkElement.HorizontalAlignment)">
+                            <Setter.Value>
+                                <HorizontalAlignment>Left</HorizontalAlignment>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <StackPanel Background="#FFF1F1F1" Margin="72,72,72,624" Padding="24,24,0,0">
             <TextBlock Text="View all your categories" FontSize="24" Width="1410" Height="40"/>
             <ListView x:Name="listView" Height="218" Width="1282" MaxHeight="218" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" >
@@ -26,9 +79,9 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <TextBlock  Text="{Binding SelectedItem.Description, ElementName=listView}"  HorizontalAlignment="Left" Margin="72,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="816" Opacity="0.5" FontWeight="Bold" FocusVisualPrimaryBrush="Gainsboro" Height="40"></TextBlock>
+        <TextBlock x:Name="textBlock"  Text="{Binding SelectedItem.Description, ElementName=listView}" Margin="109,406,575,554" TextWrapping="Wrap" Width="816" Opacity="0.5" FontWeight="Bold" FocusVisualPrimaryBrush="Gainsboro" Height="40"/>
 
-        <StackPanel Background="White" Margin="0,474,0,208" HorizontalAlignment="Center">
+        <StackPanel x:Name="stackPanel" Background="White" Margin="0,454,0,228">
             <TextBlock Text="Or add a new one" FontSize="24" Width="238" HorizontalAlignment="Center" Margin="0,0,0,24"/>
             <TextBox  x:Name="CategoryName"  PlaceholderText="Category name" Text="{Binding Path=CategoryName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="0,0,0,5" HorizontalAlignment="Stretch"/>
             <TextBox x:Name="CategoryDescription" PlaceholderText="Category description"  Text="{Binding Path=CategoryDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap"/>

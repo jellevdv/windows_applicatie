@@ -14,6 +14,20 @@
     </Page.DataContext>
 
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Tablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <TextBlock HorizontalAlignment="Left" Margin="1317,80,0,0" Text="25% packed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <StackPanel Margin="268,-5,268,585" MinWidth="400">
             <TextBlock Text="{Binding Path=Holiday.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>

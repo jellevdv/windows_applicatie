@@ -15,6 +15,43 @@
 
     <Page.Content>
         <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="VisualStateGroup">
+                    <VisualState x:Name="Tablet">
+                        <VisualState.Setters>
+                            <Setter Target="lvHolidays.(FrameworkElement.Margin)">
+                                <Setter.Value>
+                                    <Thickness>49,136,681,685</Thickness>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Target="lvHolidays.(FrameworkElement.Width)" Value="NaN"/>
+                            <Setter Target="stackPanel.(FrameworkElement.Margin)">
+                                <Setter.Value>
+                                    <Thickness>617,384,617,470</Thickness>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Target="stackPanel1.(FrameworkElement.Margin)">
+                                <Setter.Value>
+                                    <Thickness>93,371,883,303</Thickness>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Target="Popup.(FrameworkElement.Margin)">
+                                <Setter.Value>
+                                    <Thickness>92,370,883,262</Thickness>
+                                </Setter.Value>
+                            </Setter>
+                        </VisualState.Setters>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0"/>
+                        </VisualState.StateTriggers>
+                    </VisualState>
+                    <VisualState x:Name="Desktop">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="800"/>
+                        </VisualState.StateTriggers>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
             <ListView x:Name="lvHolidays" ItemsSource="{Binding Path=Holidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedHoliday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Background="#FFEEEEEE" Width="968" Margin="266,146,266,675" MaxHeight="180">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -24,14 +61,14 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackPanel Margin="998,405,236,449">
-                <Button x:Name="GoToDetailScreenHoliday" Content="Start packing!"  Click="GoToDetailScreenHoliday_Click" MinWidth="148" Padding="4,4,4,4" HorizontalAlignment="Right" Margin="0,0,72,24"/>
+            <StackPanel x:Name="stackPanel" Margin="617,388,617,466">
+                <Button x:Name="GoToDetailScreenHoliday" Content="Start packing!"  Click="GoToDetailScreenHoliday_Click" MinWidth="148" Padding="4,4,4,4" HorizontalAlignment="Right" Margin="0,0,72,24" Background="#3336D426"/>
                 <Button x:Name="AddHolidayBtn" Content="Add Holiday"  Click="AddHolidayBtn_Click" HorizontalAlignment="Right" Margin="0,0,72,0" MinWidth="148" Padding="4,4,4,4"/>
                 <Button x:Name="RemoveHolidayBtn" Content="Remove Holiday" Command="{Binding RemoveHolidayCommand}" HorizontalAlignment="Right" Margin="0,24,72,0" MinWidth="148" Background="#33BDA8A8"/>
             </StackPanel>
 
 
-            <StackPanel FocusVisualPrimaryBrush="#FFE4AFAF" Margin="266,426,484,222" RenderTransformOrigin="0.5,0.5">
+            <StackPanel x:Name="stackPanel1" FocusVisualPrimaryBrush="#FFE4AFAF" Margin="93,371,939,322" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <CompositeTransform Rotation="0"/>
                 </StackPanel.RenderTransform>
