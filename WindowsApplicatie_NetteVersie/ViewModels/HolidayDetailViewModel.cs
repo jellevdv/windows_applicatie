@@ -27,6 +27,15 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         public Item SelectedItem { get; set; }
 
 
+        public string ItemName { get; set; }
+
+        public string TaskDescription { get; set; }
+
+        //Add item to category
+        public ICommand AddItemCommand => new Command(AddItem);
+        public ICommand AddItemTaskCommand => new Command(AddItemTask);
+
+
 
         public ICommand HandleCheckCommand => new Command(HandleCheck);
 
@@ -76,6 +85,18 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         public void AddCategoryToHoliday(Category category)
         {
             Categories.Add(category);
+        }
+
+
+        public void AddItem()
+        {
+            //TODO amount of items
+            SelectedCategory.AddItemToCategory(new Item(ItemName,1));
+        }
+
+        public void AddItemTask()
+        {
+            SelectedItem.AddTaskToItem(new ItemTask(TaskDescription, false));
         }
     }
 }

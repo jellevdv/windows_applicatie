@@ -75,6 +75,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public void RemoveHoliday()
         {
+            Console.WriteLine("Delete clicked");
             Holidays.Remove(SelectedHoliday);
         }
 

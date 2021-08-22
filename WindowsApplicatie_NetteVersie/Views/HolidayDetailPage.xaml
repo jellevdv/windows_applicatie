@@ -15,7 +15,7 @@
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="1317,80,0,0" Text="25% packed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <StackPanel Margin="268,-5,268,585">
+        <StackPanel Margin="268,-5,268,585" MinWidth="400">
             <TextBlock Text="{Binding Holiday.Name}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
             <TextBlock Text="to" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
             <TextBlock Text="{Binding Holiday.Destination}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
@@ -26,7 +26,7 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView x:Name="lvCategories" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Margin="322,389,324,479" Background="#FFEEEEEE" MaxHeight="132">
+        <ListView x:Name="lvCategories" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Margin="322,389,324,479" Background="#FFEEEEEE" MaxHeight="132" MinWidth="396">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">
@@ -36,7 +36,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView x:Name="lvItems" Background="#FFEEEEEE" Margin="322,575,324,265" MaxHeight="132" ItemsSource="{Binding SelectedItem.Items, ElementName=lvCategories}">
+        <ListView x:Name="lvItems" Background="#FFEEEEEE" Margin="322,575,324,265" MaxHeight="132" ItemsSource="{Binding SelectedItem.Items, ElementName=lvCategories}" MinWidth="392">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">
@@ -46,11 +46,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
         <TextBlock  Text="{Binding SelectedItem.Description, ElementName=lvCategories}"  HorizontalAlignment="Left" Margin="322,547,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="816" Opacity="0.5" FontWeight="Bold" FocusVisualPrimaryBrush="Gainsboro" Height="40"></TextBlock>
 
 
-        <ListView x:Name="lvTasks"  Background="#FFEEEEEE" Margin="322,766,324,74" MaxHeight="132" ItemsSource="{Binding SelectedItem.ItemTasks, ElementName=lvItems}">
+        <ListView x:Name="lvTasks"  Background="#FFEEEEEE" Margin="322,766,324,74" MaxHeight="132" ItemsSource="{Binding SelectedItem.ItemTasks, ElementName=lvItems}" MinWidth="400">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">
@@ -60,6 +60,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <TextBox HorizontalAlignment="Left" Margin="807,534,0,0" x:Name="ItemName" Text="{Binding Path=ItemName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" MinWidth="217"/>
+        <Button Content="Add item to category" Margin="1024,535,0,0" VerticalAlignment="Top" Height="31" MinWidth="148"/>
+        <TextBox HorizontalAlignment="Left" Margin="807,742,0,0" x:Name="TaskDescription" Text="{Binding Path=TaskDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="217" MinWidth="217"/>
+        <Button Content="Add task to item" Margin="1024,742,0,0" VerticalAlignment="Top" Height="31" Width="153" MinWidth="148"/>
 
 
 

@@ -35,6 +35,8 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         private void AddCategory()
         {
             Categories.Add(new Category(CategoryName, CategoryDescription));
+            CategoryName = "";
+            CategoryDescription = "";
         }
     }
 }
