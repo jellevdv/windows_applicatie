@@ -64,30 +64,15 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             }
             OnPropertyChanged("Holidays");
         }
-
-        //private async void HaalDataOp()
-        //{
-        //    HttpClient client = new HttpClient();
-        //    var json = await client.GetStringAsync(new Uri("https://localhost:44357/api/Holidays")); //string naar backend
-        //    var lst = JsonConvert.DeserializeObject<ObservableCollection<Holiday>>(json);
-        //    //   this.Movies = lst;
-        //    foreach (Holiday h in lst)
-        //    {
-        //        this.Holidays.Add(h);
-        //    }
-        //}
-
+        
         public async void AddHoliday(DateTime holidayDepartureDate)
         {
-            //TODO de datum uit de calenderpicker halen!
-
             Holiday holiday = new Holiday(HolidayName, HolidayDescription, HolidayDestination, holidayDepartureDate);
             (Holiday h, CustomError c) = await HolidayService.AddHoliday(holiday);
             if (h.ID >= 0 && c.Message == null)
             {
                 Holidays.Add(h);
             }
-
         }
 
         public void RemoveHoliday()

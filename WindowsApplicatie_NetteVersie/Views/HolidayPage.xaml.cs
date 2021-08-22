@@ -39,15 +39,21 @@ namespace WindowsApplicatie_NetteVersie.Views
         {
 
             //_navigationService.Navigate(typeof(ContentGridDetailPage), clickedItem.OrderID);
-            //  _navigationService.NavigateTo(ItemPage);
+            //_navigationService.NavigateTo(ItemPage);
+            System.Diagnostics.Debug.WriteLine(vm.SelectedHoliday.Name);
+            Frame.Navigate(typeof(HolidayDetailPage), vm.SelectedHoliday);
+
+
         }
+
+
 
         private void AddHoliday_Button(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(HolidayDepartureDate.Date.Value.DateTime.ToString());
+            
             System.Diagnostics.Debug.WriteLine(DepartureTime.Time.ToString());
 
-            var datetime = HolidayDepartureDate.Date.Value.DateTime.ToString().Split(" ")[0] + " "+DepartureTime.Time.ToString();
+            var datetime = HolidayDepartureDate.Date.Value.DateTime.ToString().Split(" ")[0] + " " + DepartureTime.Time.ToString();
 
             System.Diagnostics.Debug.WriteLine(datetime);
 

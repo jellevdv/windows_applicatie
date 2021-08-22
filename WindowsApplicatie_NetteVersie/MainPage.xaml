@@ -17,7 +17,7 @@
 
                 <NavigationViewItem Icon="Favorite" Content="Categories" Tag="CategoryPage"/>
 
-                <NavigationViewItem Icon="Directions" Content="Holiday" Tag="TestPage"/>
+                <!--<NavigationViewItem Icon="Directions" Content="Holiday" Tag="TestPage"/>-->
                 
             </NavigationView.MenuItems>
 

@@ -15,7 +15,7 @@
 
     <Page.Content>
         <Grid>
-            <ListView x:Name="lvHolidays" ItemsSource="{Binding Path=Holidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedHoliday}"  Background="#FFEEEEEE" Width="968" Margin="266,146,266,675" MaxHeight="180">
+            <ListView x:Name="lvHolidays" ItemsSource="{Binding Path=Holidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedHoliday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Background="#FFEEEEEE" Width="968" Margin="266,146,266,675" MaxHeight="180">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
@@ -35,10 +35,10 @@
                 <StackPanel.RenderTransform>
                     <CompositeTransform Rotation="0"/>
                 </StackPanel.RenderTransform>
-                <TextBlock Text="{Binding SelectedItem.Name, ElementName=lvHolidays}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
-                <TextBlock  Text="{Binding SelectedItem.Destination, ElementName=lvHolidays}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
-                <TextBlock  Text="{Binding SelectedItem.Description, ElementName=lvHolidays}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
-                <TextBlock  Text="{Binding SelectedItem.DepartureDate, ElementName=lvHolidays}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding SelectedItem.Name, ElementName=lvHolidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
+                <TextBlock  Text="{Binding SelectedItem.Destination, ElementName=lvHolidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
+                <TextBlock  Text="{Binding SelectedItem.Description, ElementName=lvHolidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,24"/>
+                <TextBlock  Text="{Binding SelectedItem.DepartureDate, ElementName=lvHolidays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
             </StackPanel>
             <Popup x:Name="Popup" Margin="266,426,484,222">
                 <StackPanel Grid.Row="1" Margin="52,37,974,461" Padding="72,72,72,72" FocusVisualPrimaryBrush="#FFF7EBEB" FocusVisualSecondaryBrush="#99FFEAEA" BorderThickness="5,0,0,0" Background="#FFE0DEDE" >

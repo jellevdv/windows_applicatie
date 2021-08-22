@@ -10,19 +10,19 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <vm:HolidayDetailViewModel/>
+        <vm:HolidayDetailViewModel x:Name="_vm"/>
     </Page.DataContext>
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="1317,80,0,0" Text="25% packed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <StackPanel Margin="268,-5,268,585" MinWidth="400">
-            <TextBlock Text="{Binding Holiday.Name}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
+            <TextBlock Text="{Binding Path=Holiday.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
             <TextBlock Text="to" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
-            <TextBlock Text="{Binding Holiday.Destination}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
+            <TextBlock Text="{Binding Path=Holiday.Destination, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
             <StackPanel Height="100" HorizontalAlignment="Center" Width="419">
                 <TextBlock  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
-                <TextBlock Text="{Binding Holiday.Description}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
-                <TextBlock Text="{Binding Holiday.DepartureDate.Date.Day, Mode=OneWay}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Path=Holiday.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Path=Holiday.DepartureDate.Date.Day, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
 
