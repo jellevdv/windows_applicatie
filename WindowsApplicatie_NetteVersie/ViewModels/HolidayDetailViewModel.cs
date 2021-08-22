@@ -32,60 +32,23 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         //selected item from listview
         public Item SelectedItem { get; set; }
 
-
         public string ItemName { get; set; }
-
         public string TaskDescription { get; set; }
 
         //Add item to category
         public ICommand AddItemCommand => new Command(AddItem);
         public ICommand AddItemTaskCommand => new Command(AddItemTask);
-
-
+        
 
         public ICommand HandleCheckCommand => new Command(HandleCheck);
-
-
         public ICommand HandleUncheckedCommand => new Command(HandleUnchecked);
-
 
 
         public HolidayDetailViewModel()
         {
-            //Holiday = new Holiday("Honeymoon", "Trip with waifu", "Hawaii", DateTime.Now);
-            //Categories = new ObservableCollection<Category>
-            //{
-            //    new Category("Electronics", "All our electronic devices"),
-            //    new Category("Watergear", "Everything we need to swim"),
-            //    new Category("Handluggage","For in the plane"),
-            //    new Category("Test","test")
-            //};
-
-            //Categories[0].AddItemToCategory(new Item("iPad", 1));
-            //Categories[0].AddItemToCategory(new Item("iPhone", 1));
-            //Categories[1].AddItemToCategory(new Item("Towels", 2));
-            //Categories[1].Items[0].SetItemAsPacked();
-            //Categories[1].AddItemToCategory(new Item("Swim shorts", 1));
-
-            //Categories[0].Items[0].AddTaskToItem(new ItemTask("Opladen", false));
-            //Categories[0].Items[0].AddTaskToItem(new ItemTask("Nieuw hoesje aandoen", true));
-            //Categories[0].Items[1].AddTaskToItem(new ItemTask("Opladen", false));
-
-            //HaalDataOp();
-
-            //System.Diagnostics.Debug.WriteLine(Holiday.Name);
+            Holiday = HolidayService.SelectedHoliday;
         }
-
-        public void InitializeHoliday(int id)
-        {
-            Holiday h = new Holiday();
-
-            h = AuthService.AppUser.Holidays.Find(hol => hol.ID == id);
-            OnPropertyChanged("Holiday");
-            OnPropertyChanged("_holiday");
-        }
-
-
+        
         private void HandleCheck(object obj)
         {
             Console.WriteLine("Checked");

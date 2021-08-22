@@ -37,30 +37,16 @@ namespace WindowsApplicatie_NetteVersie.Views
 
         private void GoToDetailScreenHoliday_Click(object sender, RoutedEventArgs e)
         {
-
-            //_navigationService.Navigate(typeof(ContentGridDetailPage), clickedItem.OrderID);
-            //_navigationService.NavigateTo(ItemPage);
-            System.Diagnostics.Debug.WriteLine(vm.SelectedHoliday.Name);
-            Frame.Navigate(typeof(HolidayDetailPage), vm.SelectedHoliday);
-
-
+            vm.SetSelectedHoliday(vm.SelectedHoliday);
+            Frame.Navigate(typeof(HolidayDetailPage));
         }
 
 
 
         private void AddHoliday_Button(object sender, RoutedEventArgs e)
         {
-            
-            System.Diagnostics.Debug.WriteLine(DepartureTime.Time.ToString());
-
-            var datetime = HolidayDepartureDate.Date.Value.DateTime.ToString().Split(" ")[0] + " " + DepartureTime.Time.ToString();
-
-            System.Diagnostics.Debug.WriteLine(datetime);
-
+            var datetime = HolidayDepartureDate.Date.Value.DateTime.ToString().Split(" ")[0] + " " + DepartureTime.Time.ToString();        
             DateTime dt = DateTime.Parse(datetime);
-
-            System.Diagnostics.Debug.WriteLine(dt.Date.ToString());
-
             vm.AddHoliday(dt);
         }
     }

@@ -10,6 +10,7 @@ namespace WindowsApplicatie_NetteVersie
 {
     static class HolidayService
     {
+        public static Holiday SelectedHoliday;
 
         public static async Task<(Holiday, CustomError)> AddHoliday(Holiday h)
         {

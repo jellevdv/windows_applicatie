@@ -20,13 +20,5 @@ namespace WindowsApplicatie_NetteVersie.Views
             _vm = new HolidayDetailViewModel();
             DataContext = _vm;
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine((e.Parameter as Holiday).Name);
-            //_vm.Holiday = (e.Parameter as Holiday);
-            _vm.InitializeHoliday((e.Parameter as Holiday).ID);
-            base.OnNavigatedTo(e);
-        }
     }
 }

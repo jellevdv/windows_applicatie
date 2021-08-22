@@ -54,6 +54,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             //HaalDataOp();
         }
 
+        internal void SetSelectedHoliday(Holiday selectedHoliday)
+        {
+            HolidayService.SelectedHoliday = selectedHoliday;
+        }
+
         private void RefreshData()
         {
             _user = AuthService.AppUser;
