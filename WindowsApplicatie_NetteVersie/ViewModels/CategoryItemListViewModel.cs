@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using WindowsApplicatie_NetteVersie.Models;
-using Xamarin.Forms;
 
 namespace WindowsApplicatie_NetteVersie.ViewModels
 {
@@ -11,10 +10,23 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
     {
         public Category selectedCategory { get; set; }
 
-        public ObservableCollection<Category> Categories { get; set; }
-        
-        public string CategoryName { get; set; }
-        public string CategoryDescription { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private ObservableCollection<Category> _categories { get; set; }
+
+        public ObservableCollection<Category> Categories
+        {
+            get
+            {
+                return _categories;
+            }
+            set
+            {
+                _categories = value;
+                this.OnPropertyChanged();
+            }
+        }
+
 
 
         public Category SelectedCategory { get; set; }
@@ -34,14 +46,25 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             //Categories[0].Items = new List<Item>();
             //Categories[0].Items.Add(i);
 
-            foreach(var c in AuthService.AppUser.Categories)
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            var _user = AuthService.AppUser;
+
+
+            System.Diagnostics.Debug.WriteLine("Getting Data For Categories");
+            System.Diagnostics.Debug.WriteLine("Getting Data For Categories --- "+_user.Categories.Count);
+
+            
+            Categories = new ObservableCollection<Category>();
+            foreach (var h in _user.Categories)
             {
-                Categories.Add(c);
+                System.Diagnostics.Debug.WriteLine(h.Name);
+                this.Categories.Add(h);
             }
-
-
-
-            //   HaalDataOp();
+            OnPropertyChanged("Holidays");
         }
 
         public async Task<CustomError> AddCategory(string name)
@@ -49,7 +72,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             Category category = new Category(name, "");
             (Category cat, CustomError c) = await HolidayService.AddCategory(category);
             if (cat.ID >= 0 && c.Message == null)
-            {
+            {               
                 Categories.Add(cat);
             }
 
@@ -59,6 +82,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         internal void SetSelectedCategory(Category category)
         {
             selectedCategory = category;
+        }
+
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

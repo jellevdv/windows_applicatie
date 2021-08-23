@@ -70,7 +70,7 @@ namespace WindowsApplicatie_NetteVersie.Models
             {
                 u.ID = (int)v["id"];
                 u.Name = (string)v["_name"];
-                u.Description = (string)v["_description"];
+                u.Description = "";
 
                 u.Items = new List<Item>();
                 //   u.Categories = (Category)v["categories"];
