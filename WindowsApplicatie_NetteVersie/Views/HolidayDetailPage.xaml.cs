@@ -1,6 +1,4 @@
 ﻿using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
-using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -19,6 +17,18 @@ namespace WindowsApplicatie_NetteVersie.Views
             this.InitializeComponent();
             _vm = new HolidayDetailViewModel();
             DataContext = _vm;
+
+            Name.Text = "Holiday Details - " + _vm.Holiday.Name;
+            Destination.Text = "Destination: " + _vm.Holiday.Destination;
+            DepartureDate.Text = "Departure Date: " + _vm.Holiday.DepartureDate.ToLongTimeString();
+            Description.Text = "Description: " + _vm.Holiday.Description;
+
+            ItemListView.ItemsSource = _vm.Holiday._items;
+        }
+
+        private void Button_AddNewItem(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
         }
     }
 }

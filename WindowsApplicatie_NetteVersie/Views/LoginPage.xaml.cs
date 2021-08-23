@@ -32,7 +32,7 @@ namespace WindowsApplicatie_NetteVersie.Views
 
             if (u.Token != null)
             {
-                Frame.Navigate(typeof(HolidayPage));
+                Frame.Navigate(typeof(HolidayListPage));
             }
         }
 

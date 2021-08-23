@@ -66,6 +66,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             foreach (var h in _user.Holidays)
             {
                 Holidays.Add(h);
+                System.Diagnostics.Debug.WriteLine(h._items.Count);
             }
             OnPropertyChanged("Holidays");
         }

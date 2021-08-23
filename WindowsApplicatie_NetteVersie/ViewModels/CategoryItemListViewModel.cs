@@ -8,8 +8,6 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 {
     public class CategoryItemListViewModel
     {
-        public Category selectedCategory { get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<Category> _categories { get; set; }
@@ -79,9 +77,22 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             return c;
         }
 
+        public async Task<CustomError> AddItem(string name)
+        {
+           Item i = new Item(name);
+
+            (Item item, CustomError c) = await HolidayService.AddItem(SelectedCategory,i);
+            if (item.ID >= 0 && c.Message == null)
+            {
+                SelectedCategory.Items.Add(item);
+            }
+
+            return c;
+        }
+
         internal void SetSelectedCategory(Category category)
         {
-            selectedCategory = category;
+            SelectedCategory = category;
         }
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)

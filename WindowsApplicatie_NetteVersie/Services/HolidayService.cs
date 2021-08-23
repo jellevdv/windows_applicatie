@@ -73,7 +73,7 @@ namespace WindowsApplicatie_NetteVersie
                 {
                     appUserID = AuthService.AppUser.ID,
                     name = h.Name,
-                    description = h.Description,        
+                    description = h.Description,
                 };
 
                 var stringPayload = JsonConvert.SerializeObject(addCategoryInput);
@@ -106,6 +106,50 @@ namespace WindowsApplicatie_NetteVersie
             }
 
             return (category, c);
+        }
+
+        public static async Task<(Item, CustomError)> AddItem(Category h, Item i)
+        {
+            HttpClient client = new HttpClient();
+            CustomError c = new CustomError();
+            Item item = new Item();
+
+            try
+            {
+                var addItemInput = new
+                {
+                    categoryID = h.ID,
+                    name = i.Name,
+                };
+
+                var stringPayload = JsonConvert.SerializeObject(addItemInput);
+                var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("https://na2backend.azurewebsites.net/api/category/item", httpContent);
+
+                if (result.Content != null)
+                {
+                    var responseContent = await result.Content.ReadAsStringAsync();
+                    try
+                    {
+                        item = (Item)JObject.Parse(responseContent);
+                    }
+                    catch
+                    {
+                        if (responseContent.ToLower().Contains("[error]"))
+                        {
+                            c.Scope = "Error";
+                            c.Message = responseContent;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                c.Scope = "app";
+                c.Message = "Something went wrong with the connection to the server. Please contact your admin!";
+            }
+
+            return (item, c);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace WindowsApplicatie_NetteVersie.Models
         private string _destination;
         private DateTime _departureDate;
         private List<Category> _categories;
+        public List<Item> _items;
 
 
         public string Name
@@ -83,6 +84,18 @@ namespace WindowsApplicatie_NetteVersie.Models
                 System.Diagnostics.Debug.WriteLine((string)v["_departuredate"]);
                 System.Diagnostics.Debug.WriteLine(DateTime.Parse((string)v["_departuredate"]));
                 u.DepartureDate = DateTime.Parse((string)v["_departuredate"]);
+
+                u._items = new List<Item>();
+
+                foreach (var d in v["_items"].Children())
+                {
+                   
+                    Item i = (Item)d["item"];
+                    i.Count = (int)d["count"];
+                    i.Packed = true;
+                    System.Diagnostics.Debug.WriteLine("HOLIDAY RESOLVER ==== " +i.Name);
+                    u._items.Add(i);
+                }
                 //   u.Categories = (Category)v["categories"];
             }
             catch

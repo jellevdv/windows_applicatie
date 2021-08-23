@@ -20,9 +20,18 @@ namespace WindowsApplicatie_NetteVersie.Views
             this.DataContext = _vm;
         }
 
-        private void Button_AddNewItem(object sender, RoutedEventArgs e)
+        private async void Button_AddNewItem(object sender, RoutedEventArgs e)
         {
-            //Frame.Navigate(typeof(AddHolidayPage));
+            CustomError c = await _vm.AddItem(ItemName.Text);
+            if (c.Message != null)
+            {
+                Error.Text = c.Message;
+            }
+            else
+            {
+                Error.Text = "";
+               ItemName.Text = "";
+            }
         }
 
         private async void Button_AddNewCategory(object sender, RoutedEventArgs e)
@@ -37,14 +46,13 @@ namespace WindowsApplicatie_NetteVersie.Views
                 Error.Text = "";
                 CategoryName.Text = "";
             }
-
         }
 
         private void CategoryListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _vm.SetSelectedCategory(CategoryListView.SelectedItem as Category);
             ItemGrid.Visibility = Visibility.Visible;
-            ItemListView.ItemsSource = _vm.selectedCategory.Items;
+            ItemListView.ItemsSource = _vm.SelectedCategory.Items;
         }
 
         private void CategoryListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)

@@ -73,6 +73,12 @@ namespace WindowsApplicatie_NetteVersie.Models
                 u.Description = "";
 
                 u.Items = new List<Item>();
+
+                foreach (var d in v["items"].Children())
+                {
+                    Item i = (Item)d;
+                    u.Items.Add(i);
+                }
                 //   u.Categories = (Category)v["categories"];
             }
             catch

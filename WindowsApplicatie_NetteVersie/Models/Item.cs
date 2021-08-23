@@ -1,17 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.ComponentModel;
 
 namespace WindowsApplicatie_NetteVersie.Models
 {
     public class Item : INotifyPropertyChanged
     {
+        public int ID { get; set; }
         private string _name;
         private int _count;
-        private bool _packed;
-        private List<ItemTask> _itemTasks;
-       
-
+        public bool Packed;
 
         public string Name
         {
@@ -36,62 +34,59 @@ namespace WindowsApplicatie_NetteVersie.Models
             }
         }
 
-        public bool Packed
-        {
-            get
-            {
-                return _packed;
-            }
-            set
-            {
-                _packed = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Packed"));
-            }
-        }
-
-
-        public List<ItemTask> ItemTasks
-        {
-            get
-            {
-                return _itemTasks;
-            }
-            set
-            {
-                _itemTasks = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemTasks"));
-            }
-        }
+        //public bool Packed
+        //{
+        //    get
+        //    {
+        //        return _packed;
+        //    }
+        //    set
+        //    {
+        //        _packed = value;
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Packed"));
+        //    }
+        //}
 
         public Item()
         {
-            ItemTasks = new List<ItemTask>();
-            _packed = false;
+            //_packed = false;
         }
 
-        public Item(string name, int count)
+        public Item(string name)
         {
-            ItemTasks = new List<ItemTask>();
-            Packed = false;
+            //Packed = false;
             Name = name;
-            Count = count;
+            //Count = count;
         }
 
-        public void AddTaskToItem(ItemTask itemTask)
-        {
-            ItemTasks.Add(itemTask);
-        }
-        public void SetItemAsPacked()
-        {
-            this.Packed = true;
-        }
-        public void SetItemAsNotPacked()
-        {
-            this.Packed = false;
-        }
+        //public void SetItemAsPacked()
+        //{
+        //    this.Packed = true;
+        //}
+        //public void SetItemAsNotPacked()
+        //{
+        //    this.Packed = false;
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public static explicit operator Item(JObject v)
+        {
+            Item u = new Item();
 
+            try
+            {
+                u.ID = (int)v["id"];
+                u.Name = (string)v["_name"];
+                System.Diagnostics.Debug.WriteLine(u.Name);
+            }
+            catch
+            {
+                System.Diagnostics.Debug.WriteLine("Something went wrong mapping the holiday in user...!");
+                throw new Exception();
+            }
+
+            return u;
+        }
     }
 }

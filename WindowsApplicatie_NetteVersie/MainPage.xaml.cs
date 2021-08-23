@@ -87,11 +87,8 @@ namespace WindowsApplicatie_NetteVersie
                             ContentFrame.Navigate(typeof(HomeScreen));
                             break;
                         case "HolidayPage":
-                            ContentFrame.Navigate(typeof(HolidayPage));
-                            break;
-                        case "HolidayListPage":
                             ContentFrame.Navigate(typeof(HolidayListPage));
-                            break;
+                            break;                        
                         case "CategoryPage":
                             ContentFrame.Navigate(typeof(CategoryItemPage));
                             break;

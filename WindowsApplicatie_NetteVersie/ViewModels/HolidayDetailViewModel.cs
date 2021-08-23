@@ -34,12 +34,7 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
 
         public string ItemName { get; set; }
         public string TaskDescription { get; set; }
-
-        //Add item to category
-        public ICommand AddItemCommand => new Command(AddItem);
-        public ICommand AddItemTaskCommand => new Command(AddItemTask);
         
-
         public ICommand HandleCheckCommand => new Command(HandleCheck);
         public ICommand HandleUncheckedCommand => new Command(HandleUnchecked);
 
@@ -66,16 +61,11 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
         }
 
 
-        public void AddItem()
-        {
-            //TODO amount of items
-            SelectedCategory.AddItemToCategory(new Item(ItemName, 1));
-        }
 
-        public void AddItemTask()
-        {
-            SelectedItem.AddTaskToItem(new ItemTask(TaskDescription, false));
-        }
+        //public void AddItemTask()
+        //{
+        //    SelectedItem.AddTaskToItem(new ItemTask(TaskDescription, false));
+        //}
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
