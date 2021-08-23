@@ -1,5 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Collections.Generic;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.Views;
 
@@ -55,6 +57,17 @@ namespace WindowsApplicatie_NetteVersie
             ContentFrame.Navigate(typeof(LoginPage));
         }
 
+        private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            //use the MyFindListBoxChildOfType method from the link.
+            var MyFrame = MyFindListBoxChildOfType<Frame>(navView);
+            if (MyFrame.CanGoBack)
+            {                
+                if (MyFrame.BackStack[MyFrame.BackStack.Count - 1].SourcePageType != typeof(LoginPage))
+                    MyFrame.GoBack();
+            }
+        }
+
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             if (args.IsSettingsSelected)
@@ -76,6 +89,9 @@ namespace WindowsApplicatie_NetteVersie
                         case "HolidayPage":
                             ContentFrame.Navigate(typeof(HolidayPage));
                             break;
+                        case "HolidayListPage":
+                            ContentFrame.Navigate(typeof(HolidayListPage));
+                            break;
                         case "CategoryPage":
                             ContentFrame.Navigate(typeof(CategoryPage));
                             break;
@@ -89,5 +105,27 @@ namespace WindowsApplicatie_NetteVersie
                 }
             }
         }
+
+        public static T MyFindListBoxChildOfType<T>(DependencyObject root) where T : class
+        {
+            var MyQueue = new Queue<DependencyObject>();
+            MyQueue.Enqueue(root);
+            while (MyQueue.Count > 0)
+            {
+                DependencyObject current = MyQueue.Dequeue();
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
+                {
+                    var child = VisualTreeHelper.GetChild(current, i);
+                    var typedChild = child as T;
+                    if (typedChild != null)
+                    {
+                        return typedChild;
+                    }
+                    MyQueue.Enqueue(child);
+                }
+            }
+            return null;
+        }
+
     }
 }

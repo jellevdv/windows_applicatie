@@ -9,13 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <NavigationView x:Name="navView" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView x:Name="navView" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged" IsBackEnabled="True" BackRequested="NavigationView_BackRequested">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="HomePage"/>
 
                 <NavigationViewItem Icon="Library" Content="Holidays" Tag="HolidayPage"/>
 
                 <NavigationViewItem Icon="Favorite" Content="Categories" Tag="CategoryPage"/>
+
+                <NavigationViewItem Icon="Favorite" Content="Categories" Tag="HolidayListPage"/>
 
                 <!--<NavigationViewItem Icon="Directions" Content="Holiday" Tag="TestPage"/>-->
                 
