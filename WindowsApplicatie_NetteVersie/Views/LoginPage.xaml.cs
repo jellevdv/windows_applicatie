@@ -26,12 +26,12 @@ namespace WindowsApplicatie_NetteVersie.Views
             User u = await vm.Login();
             System.Diagnostics.Debug.WriteLine(u.ID);
 
-       
-            MainPage mainPage = (Window.Current.Content as Frame).Content as MainPage;
-            mainPage.DisplayNav();
+                  
 
             if (u.Token != null)
             {
+                MainPage mainPage = (Window.Current.Content as Frame).Content as MainPage;
+                mainPage.DisplayNav();
                 Frame.Navigate(typeof(HolidayListPage));
             }
         }

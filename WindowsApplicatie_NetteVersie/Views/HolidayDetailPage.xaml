@@ -84,7 +84,7 @@
                                 <TextBlock Grid.Column="2" Text="{Binding Count}" Margin="50,0,0,0" 
                     Style="{ThemeResource BodyTextBlockStyle}"/>
 
-                                
+
                                 <!--<TextBlock  Grid.Column="1"  Text="{Binding DepartureDate}" Margin="12,0,0,6" 
                     Style="{ThemeResource BodyTextBlockStyle}"/>-->
                             </Grid>
@@ -93,7 +93,7 @@
                 </ListView>
             </Grid>
 
-            <!--<Grid x:Name="ItemGrid" Grid.Row="0" Grid.Column="1">
+            <Grid x:Name="ItemGrid" Grid.Row="0" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -115,12 +115,10 @@
                     <Button Content="Create" Grid.Row="1" Click="Button_AddNewItem" HorizontalAlignment="Stretch" Height="40" Margin="50,10,50,0" VerticalAlignment="Center" FontFamily="Segoe UI"  />
 
                 </Grid>
-                <ListView x:Name="ItemListView"
+                <ListView x:Name="TaskListView"
                           Grid.Row="2"
                   Margin="50,10,50,0"
                   ItemsSource=""
-                  SelectionChanged="ItemListView_SelectionChanged"
-                  DoubleTapped="ItemListView_DoubleTapped"
                   BorderThickness="1"
                   Height="500"
                           MaxHeight="500"
@@ -132,77 +130,21 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{Binding Name}" Margin="12,0,0,0" 
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Checked}"  />
+                                <TextBlock Grid.Column="1" Text="{Binding Description}" Margin="12,0,0,0" 
                     Style="{ThemeResource BodyTextBlockStyle}"/>
-                                -->
-            <!--<TextBlock  Grid.Column="1"  Text="{Binding DepartureDate}" Margin="12,0,0,6" 
-                    Style="{ThemeResource BodyTextBlockStyle}"/>-->
-            <!--
+
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </Grid>-->
+            </Grid>
 
         </Grid>
-
-
-
-
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Desktop">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1024"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--<Setter Target="PageTitle.FontSize" Value="48"/>-->
-
-                        <!--<Setter Target="ListHint.(Grid.Column)" Value="0" />
-                        <Setter Target="ListHint.(Grid.ColSpan)" Value="1" />
-
-                        <Setter Target="ListAdd.(Grid.Column)" Value="1" />
-                        <Setter Target="ListAdd.(Grid.Row)" Value="0" />
-                        <Setter Target="ListAdd.(Grid.ColSpan)" Value="1" />-->
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Tablet">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="768"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--<Setter Target="PageTitle.FontSize" Value="32"/>-->
-
-                        <!--<Setter Target="ListHint.(Grid.Column)" Value="0" />
-                        <Setter Target="ListHint.(Grid.ColSpan)" Value="2" />
-
-                        <Setter Target="ListAdd.(Grid.Column)" Value="0" />
-                        <Setter Target="ListAdd.(Grid.Row)" Value="1" />
-                        <Setter Target="ListAdd.(Grid.ColSpan)" Value="2" />-->
-
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Phone">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--<Setter Target="PageTitle.FontSize" Value="24"/>-->
-
-                        <!--<Setter Target="ListHint.(Grid.Column)" Value="0" />
-                        <Setter Target="ListHint.(Grid.ColSpan)" Value="2" />
-
-                        <Setter Target="ListAdd.(Grid.Column)" Value="0" />
-                        <Setter Target="ListAdd.(Grid.Row)" Value="1" />
-                        <Setter Target="ListAdd.(Grid.ColSpan)" Value="2" />-->
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+       
     </StackPanel>
 
 
@@ -210,71 +152,4 @@
 
 
 
-    <!--<Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Desktop">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState x:Name="Tablet">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <TextBlock HorizontalAlignment="Left" Margin="1317,80,0,0" Text="25% packed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <StackPanel Margin="268,-5,268,585" MinWidth="400">
-            <TextBlock Text="{Binding Path=Holiday.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,72,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
-            <TextBlock Text="to" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
-            <TextBlock Text="{Binding Path=Holiday.Destination, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,8,0,0" FontSize="36" FontFamily="Lucida Sans Unicode"/>
-            <StackPanel Height="100" HorizontalAlignment="Center" Width="419">
-                <TextBlock  TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
-                <TextBlock Text="{Binding Path=Holiday.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
-                <TextBlock Text="{Binding Path=Holiday.DepartureDate.Date.Day, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" FontSize="24" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </StackPanel>
-
-        <ListView x:Name="lvCategories" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Margin="322,389,324,479" Background="#FFEEEEEE" MaxHeight="132" MinWidth="396">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{Binding Name}" Margin="8"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <ListView x:Name="lvItems" Background="#FFEEEEEE" Margin="322,575,324,265" MaxHeight="132" ItemsSource="{Binding SelectedItem.Items, ElementName=lvCategories}" MinWidth="392">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{Binding Name}" Margin="8"/>
-                        <CheckBox IsChecked="{Binding Path=Packed}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <TextBlock  Text="{Binding SelectedItem.Description, ElementName=lvCategories}"  HorizontalAlignment="Left" Margin="322,547,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="816" Opacity="0.5" FontWeight="Bold" FocusVisualPrimaryBrush="Gainsboro" Height="40"></TextBlock>
-
-
-        <ListView x:Name="lvTasks"  Background="#FFEEEEEE" Margin="322,766,324,74" MaxHeight="132" ItemsSource="{Binding SelectedItem.ItemTasks, ElementName=lvItems}" MinWidth="400">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{Binding Description}" Margin="8"/>
-                        <CheckBox IsChecked="{Binding Path=IsDone}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <TextBox HorizontalAlignment="Left" Margin="807,534,0,0" x:Name="ItemName" Text="{Binding Path=ItemName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" MinWidth="217"/>
-        <Button Content="Add item to category" Margin="1024,535,0,0" VerticalAlignment="Top" Height="31" MinWidth="148"/>
-        <TextBox HorizontalAlignment="Left" Margin="807,742,0,0" x:Name="TaskDescription" Text="{Binding Path=TaskDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="217" MinWidth="217"/>
-        <Button Content="Add task to item" Margin="1024,742,0,0" VerticalAlignment="Top" Height="31" Width="153" MinWidth="148"/>
-
-    </Grid>-->
 </Page>
