@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <vm:CategoryListViewModel/>
+        <vm:CategoryItemListViewModel/>
     </Page.DataContext>
 
     <Grid>

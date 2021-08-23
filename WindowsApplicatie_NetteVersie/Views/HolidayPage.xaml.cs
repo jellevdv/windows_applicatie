@@ -47,7 +47,7 @@ namespace WindowsApplicatie_NetteVersie.Views
         {
             var datetime = HolidayDepartureDate.Date.Value.DateTime.ToString().Split(" ")[0] + " " + DepartureTime.Time.ToString();        
             DateTime dt = DateTime.Parse(datetime);
-            vm.AddHoliday(dt);
+            //vm.AddHoliday(dt);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace WindowsApplicatie_NetteVersie.Models
         //public Medical[] Medicals { get; set; }
         //public Emergency[] Emergencies { get; set; }
         public List<Holiday> Holidays { get; set; }
+        public List<Category> Categories { get; set; }
 
         public User() { }
 
@@ -61,7 +62,13 @@ namespace WindowsApplicatie_NetteVersie.Models
                     u.Holidays.Add(h);
                 }
 
-                System.Diagnostics.Debug.WriteLine(u.Holidays.Count);
+                u.Categories = new List<Category>();
+
+                foreach (var d in v["categories"].Children())
+                {
+                    Category c = (Category)d;
+                    u.Categories.Add(c);
+                }
 
             }
             catch

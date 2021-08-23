@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using WindowsApplicatie_NetteVersie.Models;
 using WindowsApplicatie_NetteVersie.ViewModels;
 
@@ -24,7 +14,7 @@ namespace WindowsApplicatie_NetteVersie.Views
     /// </summary>
     public sealed partial class HolidayListPage : Page
     {
-        
+
         public HolidayListPage()
         {
             this.InitializeComponent();
@@ -37,15 +27,15 @@ namespace WindowsApplicatie_NetteVersie.Views
         {
             _vm.SetSelectedHoliday(HolidayListView.SelectedItem as Holiday);
         }
-
-        private void HolidayListView_DoubleClick(object sender, EventArgs e)
+        
+        private void HolidayListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(HolidayDetailPage));
         }
 
-        private void HolidayListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private void Button_AddNewHoliday(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(HolidayDetailPage));
+            Frame.Navigate(typeof(AddHolidayPage));
         }
     }
 }

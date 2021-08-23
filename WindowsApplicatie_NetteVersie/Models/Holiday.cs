@@ -76,10 +76,13 @@ namespace WindowsApplicatie_NetteVersie.Models
 
             try
             {
+                u.ID = (int)v["id"];
                 u.Name = (string)v["_name"];
                 u.Description = (string)v["_description"];
                 u.Destination = (string)v["_destination"];
-                u.DepartureDate = (DateTime)v["_departuredate"];
+                System.Diagnostics.Debug.WriteLine((string)v["_departuredate"]);
+                System.Diagnostics.Debug.WriteLine(DateTime.Parse((string)v["_departuredate"]));
+                u.DepartureDate = DateTime.Parse((string)v["_departuredate"]);
                 //   u.Categories = (Category)v["categories"];
             }
             catch

@@ -26,7 +26,7 @@ namespace WindowsApplicatie_NetteVersie.Views
         public CategoryPage()
         {
             this.InitializeComponent();
-            this.DataContext = new CategoryListViewModel();
+            this.DataContext = new CategoryItemListViewModel();
         }
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)

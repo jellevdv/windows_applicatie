@@ -1,6 +1,6 @@
 ﻿namespace WindowsApplicatie_NetteVersie.Models
 {
-    class CustomError
+    public class CustomError
     {
         public string Scope { get; set; }
         public string Message { get; set; }

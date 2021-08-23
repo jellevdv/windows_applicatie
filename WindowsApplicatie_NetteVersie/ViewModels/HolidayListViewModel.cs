@@ -2,8 +2,8 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Xaml.Controls;
 using WindowsApplicatie_NetteVersie.Models;
 using Xamarin.Forms;
 
@@ -69,15 +69,17 @@ namespace WindowsApplicatie_NetteVersie.ViewModels
             }
             OnPropertyChanged("Holidays");
         }
-        
-        public async void AddHoliday(DateTime holidayDepartureDate)
+
+        public async Task<CustomError> AddHoliday(string name, string description, string destination, DateTime holidayDepartureDate)
         {
-            Holiday holiday = new Holiday(HolidayName, HolidayDescription, HolidayDestination, holidayDepartureDate);
+            Holiday holiday = new Holiday(name, description, destination, holidayDepartureDate);
             (Holiday h, CustomError c) = await HolidayService.AddHoliday(holiday);
             if (h.ID >= 0 && c.Message == null)
             {
                 Holidays.Add(h);
             }
+
+            return c;
         }
 
         public void RemoveHoliday()

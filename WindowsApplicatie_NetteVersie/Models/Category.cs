@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using Windows.UI.Xaml.Controls.Primitives;
 
 namespace WindowsApplicatie_NetteVersie.Models
 {
@@ -9,6 +9,7 @@ namespace WindowsApplicatie_NetteVersie.Models
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public int ID { get; set; }
         private string _name;
         private string _description;
         private List<Item> _items;
@@ -31,10 +32,13 @@ namespace WindowsApplicatie_NetteVersie.Models
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Description"));
             }
         }
-        public List<Item> Items { get
+        public List<Item> Items
+        {
+            get
             {
                 return _items;
-            } set
+            }
+            set
             {
                 _items = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
@@ -58,5 +62,26 @@ namespace WindowsApplicatie_NetteVersie.Models
             Items.Add(item);
         }
 
+        public static explicit operator Category(JToken v)
+        {
+            Category u = new Category();
+
+            try
+            {
+                u.ID = (int)v["id"];
+                u.Name = (string)v["_name"];
+                u.Description = (string)v["_description"];
+
+                u.Items = new List<Item>();
+                //   u.Categories = (Category)v["categories"];
+            }
+            catch
+            {
+                System.Diagnostics.Debug.WriteLine("Something went wrong mapping the holiday in user...!");
+                throw new Exception();
+            }
+
+            return u;
+        }
     }
 }

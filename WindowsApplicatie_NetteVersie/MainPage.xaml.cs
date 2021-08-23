@@ -46,9 +46,9 @@ namespace WindowsApplicatie_NetteVersie
 
         public void DisplayNav()
         {
-            this.navView.PaneDisplayMode = NavigationViewPaneDisplayMode.Left;
+            this.navView.PaneDisplayMode = NavigationViewPaneDisplayMode.LeftCompact;
             this.navView.IsPaneVisible = true;
-            this.navView.IsPaneOpen = true;
+            //this.navView.IsPaneOpen = true;
             this.navView.IsPaneToggleButtonVisible = true;
         }
 
@@ -93,7 +93,7 @@ namespace WindowsApplicatie_NetteVersie
                             ContentFrame.Navigate(typeof(HolidayListPage));
                             break;
                         case "CategoryPage":
-                            ContentFrame.Navigate(typeof(CategoryPage));
+                            ContentFrame.Navigate(typeof(CategoryItemPage));
                             break;
                         case "ItemPage":
                             ContentFrame.Navigate(typeof(ItemPage));

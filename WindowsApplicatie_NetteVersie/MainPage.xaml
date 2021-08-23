@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <NavigationView x:Name="navView" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged" IsBackEnabled="True" BackRequested="NavigationView_BackRequested">
+        <NavigationView x:Name="navView" Loaded="NavigationView_Loaded" SelectionChanged="NavigationView_SelectionChanged" IsBackEnabled="True" BackRequested="NavigationView_BackRequested" PaneDisplayMode="LeftCompact">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="HomePage"/>
 
