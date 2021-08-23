@@ -53,6 +53,17 @@
             <PasswordBox x:Name="PasswConfirm" Margin="0,5,0,0" PlaceholderText="********" Password="{Binding Path=PasswConfirm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="40" Padding="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300"/>
       
             <Button Content="Register" Click="Button_Register" HorizontalAlignment="Center" Height="40" Margin="0,20,0,0" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI"  />
+            <Button FontStyle="Italic" Content="Go back..." Click="Button_GoBack" HorizontalAlignment="Center" Height="40"  Margin="0,20,0,0" VerticalAlignment="Center" Width="300" FontFamily="Segoe UI" Background="Transparent" Foreground="Gray" >
+                <Button.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary x:Key="Dark">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent"/>
+                            </ResourceDictionary>
+                        </ResourceDictionary.ThemeDictionaries>
+                    </ResourceDictionary>
+                </Button.Resources>
+            </Button>
 
 
         </StackPanel>

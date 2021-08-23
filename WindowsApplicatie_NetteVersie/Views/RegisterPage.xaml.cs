@@ -53,6 +53,11 @@ namespace WindowsApplicatie_NetteVersie.Views
                 t.Text = "Something went wrong... Please try again.";
             }
         }
+
+        private void Button_GoBack(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage));
+        }
     }
 
 
